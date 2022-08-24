@@ -1,0 +1,8 @@
+@mixin fontFace($fontFamily, $fontFile) {
+    @font-face {
+        font-family: $fontFamily;
+        src: url($fontFile) format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
+}

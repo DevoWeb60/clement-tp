@@ -1,0 +1,14 @@
+@import "reset";
+@import "utils/mixins";
+@import "utils/variables";
+@import "utils/text";
+
+@include fontFace("Signika Negative", "fonts/SignikaNegative.ttf");
+@include fontFace("League Spartan", "fonts/LeagueSpartan.ttf");
+
+body {
+    font-family: "Signika Negative", sans-serif;
+    background: $white;
+    color: $black;
+    font-size: $fs-content;
+}

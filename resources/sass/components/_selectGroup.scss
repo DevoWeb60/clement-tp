@@ -1,0 +1,20 @@
+select {
+    width: 100%;
+    border: none;
+    background: $grey;
+    border-left: 3px solid $primary;
+    padding: 10px;
+    outline: none;
+    transition: $transition;
+    margin-bottom: 40px;
+
+    &:focus {
+        background: $primary;
+        border-radius: 5px;
+    }
+
+    option {
+        color: black;
+        background: $white;
+    }
+}

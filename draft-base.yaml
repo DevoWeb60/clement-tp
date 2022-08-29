@@ -1,0 +1,320 @@
+models:
+  User:
+    firstname: string:250
+    lastname: string:250
+    password: string:250
+    email: string:250
+  Delivery:
+    name: string:250
+    code: string:250
+
+  PageMenu:
+    name: string:250
+    position: string:250
+
+  PageContent:
+    content: text
+    image: string:250 nullable
+    section_name: string:250
+    link: string:250 nullable
+
+  SiteInfo:
+    description: text
+    title: string:250
+    phone: string:250
+    address: string:250
+    iframe_map: text nullable
+    email: string:250
+    logo: string:250
+    favicon: string:250
+
+  JobOffer:
+    name: string:250
+    description: text
+    salary: string:250 nullable
+    skills: string:250
+    city: string:250 nullable
+    iframe_map: text nullable
+    relationships:
+      hasMany: Candidate
+
+  Service:
+    name: string:250
+    customers: text nullable
+    professionnal: text nullable
+    image: string:250 nullable
+
+  ContactObject:
+    name: string:100
+
+  Candidate:
+    email: string:250
+    message: text nullable
+    file: string:250
+    phone: string:250 nullable
+    firstname: string:250
+    lastname: string:250
+    states_id: id foreign
+    job_offer_id: id foreign
+    relationships:
+      belongsTo: CandidateState, JobOffer
+
+  Contact:
+    name: string:250
+    message: text
+    phone: string:250 nullable
+    email: string:250
+    viewed: boolean default:false
+    delivery_id: id foreign
+    object_id: id foreign:contact_objects.id
+    relationships:
+      BelongsTo: Delivery, ContactObject
+
+  CandidateState:
+    name: string:100
+
+controllers:
+  User:
+    index:
+      query: all
+      render: users.index with:users
+
+    create:
+      render: users.create
+
+    store:
+      validate: firstname, lastname, password, email
+      save: user
+      redirect: users.index
+
+    update:
+      validate: firsname, lastname, password, email
+      update: user
+      render: users.update with:user
+      redirect: users.index
+
+  Delivery:
+    index:
+      query: all
+      render: deliveries.index with:delivery
+
+    create:
+      render: deliveries.create
+
+    store:
+      validate: name, code
+      save: delivery
+      redirect: deliveries.index
+
+    update:
+      validate: name, code
+      update: delivery
+      render: delivery.update with:delivery
+      redirect: deliveries.index
+
+    destroy:
+      delete: delivery
+
+  PageMenu:
+    index:
+      query: all
+      render: page-menu.index with:pageMenu
+
+    create:
+      render: page-menu.create
+
+    store:
+      validate: name, position
+      save: pageMenu
+      redirect: page-menu.index
+
+    update:
+      validate: name, position
+      update: pageMenu
+      render: page-menu.update with:pageMenu
+      redirect: page-menu.index
+
+    destroy:
+      delete: pageMenu
+
+  PageContent:
+    index:
+      query: all
+      render: page-content.index with:delivery
+
+    create:
+      render: page-content.create
+
+    store:
+      validate: content, section_name, link, image
+      save: pageContent
+      redirect: page-content.index
+
+    update:
+      validate: content, section_name, link, image
+      update: pageContent
+      render: page-content.update with:pageContent
+      redirect: page-content.index
+
+    destroy:
+      delete: pageContent
+
+  SiteInfo:
+    index:
+      query: all
+      render: site-info.index with:siteInfo
+
+    create:
+      render: site-infos.create
+
+    store:
+      validate: description, title, phone, address, email, logo, favicon
+      save: siteInfo
+      redirect: site-infos.index
+
+    update:
+      validate: description, title, phone, address, email, logo, favicon
+      update: siteInfo
+      render: site-infos.update with:siteInfo
+      redirect: site-infos.index
+
+    destroy:
+      delete: siteInfo
+
+  JobOffer:
+    index:
+      query: all
+      render: job-offers.index with:jobOffer
+
+    create:
+      render: job-offers.create
+
+    store:
+      validate: name, description, salary, skills, city
+      save: jobOffer
+      redirect: job-offers.index
+
+    update:
+      validate: name, description, salary, skills, city
+      update: jobOffer
+      render: job-offers.update with:jobOffer
+      redirect: job-offers.index
+
+    destroy:
+      delete: jobOffer
+
+  Services:
+    index:
+      query: all
+      render: services.index with:service
+
+    create:
+      render: services.create
+
+    store:
+      validate: name, customers, professionnal, image
+      save: service
+      redirect: services.index
+
+    update:
+      validate: name, customers, professionnal, image
+      update: service
+      render: services.update with:service
+      redirect: services.index
+
+    destroy:
+      delete: service
+
+  ContactObject:
+    index:
+      query: all
+      render: contact-objects.index with:contactObject
+
+    create:
+      render: contact-objects.create
+
+    store:
+      validate: name
+      save: contactObject
+      redirect: contact-objects.index
+
+    update:
+      validate: name
+      update: contactObject
+      render: contact-objects.update with:contactObject
+      redirect: contact-objects.index
+
+    destroy:
+      delete: contactObject
+
+  Candidate:
+    index:
+      query: all
+      render: candidates.index with:candidate
+
+    show:
+      render: candidate.show with:candidate
+
+    create:
+      render: candidates.create
+
+    store:
+      validate: email, message, file, phone, firstname, lastname
+      save: candidate
+      redirect: candidates.index
+
+    update:
+      validate: email, message, file, phone, firstname, lastname
+      update: candidate
+      render: candidate.update with:candidate
+      redirect: candidates.index
+
+    destroy:
+      delete: candidate
+
+  Contact:
+    index:
+      query: all
+      render: contacts.index with:contact
+
+    show:
+      render: contact.show with:contact
+
+    create:
+      render: contacts.create
+
+    store:
+      validate: name, message, phone, email
+      save: contact
+      redirect: contacts.index
+
+    update:
+      validate: name, message, phone, email
+      update: contact
+      render: contact.update with:contact
+      redirect: contacts.index
+
+    destroy:
+      delete: contact
+
+  CandidateState:
+    index:
+      query: all
+      render: candidate-state.index with:candidateStates
+
+    create:
+      render: candidate-state.create
+
+    store:
+      validate: name
+      save: candidateState
+      redirect: candidate-state.index
+
+    update:
+      validate: name
+      update: candidateState
+      render: candidate-state.update with:candidateState
+      redirect: candidate-state.index
+
+    destroy:
+      delete: candidateState

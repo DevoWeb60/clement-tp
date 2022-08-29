@@ -1,0 +1,20 @@
+.offers {
+    ul {
+        li {
+            margin: 20px 0;
+
+            a {
+                @include flexSpaceBetween();
+                @include flexAlignCenter();
+                padding: 5px 15px;
+                background: $grey;
+                box-shadow: $boxShadow;
+                border-radius: 5px;
+                flex-wrap: wrap;
+                h3 {
+                    margin: 10px 0;
+                }
+            }
+        }
+    }
+}

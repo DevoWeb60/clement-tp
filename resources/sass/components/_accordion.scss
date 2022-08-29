@@ -1,0 +1,46 @@
+.accordion {
+    padding: 20px;
+    background: $grey;
+    border-left: 2px solid $primary;
+    border-bottom: 2px solid $primary;
+    border-radius: $borderRadius;
+    box-shadow: $boxShadow;
+
+    .header-accordion {
+        @include flexSpaceBetween();
+        @include flexAlignCenter();
+
+        h3 {
+            font-weight: 900;
+            margin: 0;
+        }
+
+        img,
+        h3 {
+            transition: $transition;
+        }
+
+        &.show {
+            h3,
+            img {
+                margin-bottom: 20px;
+            }
+            img {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+
+    .content-accordion {
+        display: none;
+
+        &.show {
+            display: block;
+        }
+
+        img {
+            border-radius: 10px;
+            box-shadow: $boxShadow;
+        }
+    }
+}

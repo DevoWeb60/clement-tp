@@ -1,0 +1,16 @@
+#contact {
+    @include flexCenter("column");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 30px $containerPadding;
+
+    p {
+        text-align: center;
+        color: $white;
+        font-size: $fs-title + 0.1em;
+    }
+    a {
+        font-size: $fs-content;
+    }
+}

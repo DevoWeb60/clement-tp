@@ -1,0 +1,40 @@
+.input-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+
+    label {
+        position: absolute;
+        transform: translate(14px, 10px);
+        transition: $transition;
+    }
+
+    input,
+    textarea {
+        border: none;
+        background: $grey;
+        border-left: 3px solid $primary;
+        padding: 10px;
+        outline: none;
+        transition: $transition;
+
+        &::placeholder {
+            color: transparent;
+        }
+
+        &:focus,
+        &:not(:placeholder-shown) {
+            background: $primary;
+            border-radius: 5px;
+
+            + label {
+                color: $darkGrey;
+                transform: translate(5px, -120%);
+            }
+        }
+    }
+    textarea {
+        height: 100px;
+    }
+}

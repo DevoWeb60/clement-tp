@@ -2,6 +2,7 @@
 @import "utils/mixins";
 @import "utils/variables";
 @import "utils/text";
+@import "utils/general";
 
 @include fontFace("Signika Negative", "fonts/SignikaNegative.ttf");
 @include fontFace("League Spartan", "fonts/LeagueSpartan.ttf");
@@ -12,3 +13,23 @@ body {
     color: $black;
     font-size: $fs-content;
 }
+
+// COMPONENT
+@import "components/header";
+@import "components/footer";
+@import "components/callToContact";
+@import "components/titleOnBackground";
+@import "components/accordion";
+@import "components/textBox";
+@import "components/formContact";
+@import "components/inputGroup";
+@import "components/selectGroup";
+
+// PAGE
+@import "pages/home";
+@import "pages/about";
+@import "pages/contact";
+@import "pages/services";
+@import "pages/projects";
+@import "pages/jobOffers";
+@import "pages/offer";

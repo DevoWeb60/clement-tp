@@ -1,0 +1,15 @@
+.title-on-background {
+    h2 {
+        font-size: $fs-title + 0.5em;
+
+        &.center {
+            text-align: center;
+        }
+    }
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $white;
+    padding: 20px;
+}

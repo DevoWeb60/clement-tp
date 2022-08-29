@@ -1,0 +1,14 @@
+.text-box {
+    padding: 20px;
+    background: $grey;
+    border-left: 5px solid $primary;
+    border-bottom: 5px solid $primary;
+    border-radius: 5px 30px 5px 30px;
+    box-shadow: $boxShadow;
+
+    h3 {
+        margin-top: 0;
+        text-transform: uppercase;
+        font-size: $fs-title;
+    }
+}

@@ -1,0 +1,82 @@
+.targetting {
+    @include flexAlignCenter();
+
+    .pro,
+    .customers {
+        position: relative;
+        width: 50%;
+        height: 300px;
+        overflow: hidden;
+
+        img {
+            transition: $transition;
+            height: 100%;
+        }
+
+        &::after {
+            content: "Professionnel";
+            position: absolute;
+            @include flexCenter();
+            font-size: 4vw;
+            text-transform: uppercase;
+            font-weight: 900;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba($primary, 0.7);
+            transition: $transition;
+            color: $black;
+            font-family: "League Spartan", sans-serif;
+            letter-spacing: 2px;
+        }
+
+        &:hover {
+            &::after {
+                background: rgba($primary, 0.8);
+            }
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .customers::after {
+        content: "Particulier";
+    }
+}
+
+#home-about {
+    margin: 50px 0;
+    h2 {
+        text-transform: uppercase;
+    }
+    p {
+        margin: 30px 0;
+    }
+    .thumb {
+        margin-top: 50px;
+    }
+}
+
+.presentation {
+    @include flexAlignCenter("column");
+
+    li {
+        @include flexCenter("column");
+        margin: 40px 0;
+
+        .thumb img {
+            width: 150px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        p {
+            width: 80%;
+            text-align: center;
+            margin-top: 0;
+        }
+    }
+}

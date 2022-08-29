@@ -1,0 +1,55 @@
+header {
+    @include flexAlignCenter();
+    @include flexSpaceBetween();
+    position: relative;
+    padding: 20px;
+    background: $white;
+
+    h1 img {
+        width: 150px;
+        transition: $transition;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    #menu-close {
+        display: none;
+    }
+
+    nav {
+        display: none;
+    }
+
+    nav.show {
+        position: fixed;
+        z-index: 1000;
+        @include flexCenter();
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+
+        ul {
+            li {
+                text-align: center;
+                margin: 30px 0;
+                a {
+                    font-size: $fs-title;
+                    text-transform: uppercase;
+                    color: $white;
+                    padding: 10px;
+                }
+            }
+        }
+
+        #menu-close {
+            position: absolute;
+            top: 25vh;
+            right: 30px;
+            display: block;
+        }
+    }
+}

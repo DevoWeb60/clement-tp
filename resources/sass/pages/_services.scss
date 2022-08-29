@@ -1,0 +1,28 @@
+.activities {
+    li {
+        margin: 20px 0;
+
+        .title-on-background {
+            @include flexCenter();
+            height: 200px;
+        }
+    }
+}
+#services-construction,
+#services-process {
+    padding: 50px $containerPadding;
+
+    ul {
+        li {
+            margin: 20px 0;
+        }
+    }
+}
+
+#services-process {
+    padding: 50px $containerPadding;
+    background: $grey;
+    .text-box {
+        background: $white;
+    }
+}

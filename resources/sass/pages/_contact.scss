@@ -1,0 +1,19 @@
+.coords {
+    margin-bottom: 90px;
+    li {
+        @include flexSpaceBetween();
+        @include flexAlignCenter();
+
+        .svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 35px;
+        }
+
+        a {
+            padding: 40px 0 5px 0;
+            text-align: right;
+            border-bottom: 2px solid $primary;
+        }
+    }
+}

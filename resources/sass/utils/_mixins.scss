@@ -1,8 +1,91 @@
+// FLEX
+
+@mixin flexAlignCenter($direction: "row") {
+    display: flex;
+    align-items: center;
+    @if $direction == "column" {
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+@mixin flexSpaceBetween($direction: "row") {
+    display: flex;
+    justify-content: space-between;
+    @if $direction == "column" {
+        align-items: center;
+        flex-direction: column;
+    }
+}
+@mixin flexInlineEnd() {
+    display: flex;
+    justify-content: flex-end;
+}
+@mixin flexCenter($direction: "row") {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @if $direction == "column" {
+        flex-direction: column;
+    }
+}
+
+// GENERAL
+
 @mixin fontFace($fontFamily, $fontFile) {
     @font-face {
         font-family: $fontFamily;
         src: url($fontFile) format("truetype");
         font-weight: normal;
         font-style: normal;
+    }
+}
+
+// COMPONENT
+
+@mixin button($bg, $text, $direction: "normale") {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 7px 15px;
+    background: $primary;
+    border: 2px solid $primary;
+    color: $black;
+    font-size: $fs-small + 0.1em;
+    transition: $transition;
+
+    &:hover {
+        background: transparent;
+        color: darken($primary, 10);
+    }
+    @if $direction == "normale" {
+        border-radius: 5px 30px 5px 30px;
+    }
+    @if $direction == "invert" {
+        border-radius: 30px 5px 30px 5px;
+    }
+}
+
+@mixin formInput() {
+    border: none;
+    border-bottom: 2px solid $primary;
+    padding: 10px;
+    outline: none;
+
+    &:focus {
+        border-left: 2px solid $primary;
+    }
+}
+
+@mixin formButton() {
+    border: 2px solid $primary;
+    border-top: none;
+    border-radius: 0px 0px 5px 30px;
+    padding: 10px;
+    background: $primary;
+    color: $black;
+    font-size: $fs-small + 0.1em;
+    transition: $transition;
+    cursor: pointer;
+    &:hover {
+        background: transparent;
     }
 }

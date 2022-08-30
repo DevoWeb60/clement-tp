@@ -30,6 +30,6 @@ class InputGroup extends Component
      */
     public function render()
     {
-        return view('components.input-group');
+        return view('components.form.input-group');
     }
 }

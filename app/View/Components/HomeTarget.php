@@ -23,6 +23,6 @@ class HomeTarget extends Component
      */
     public function render()
     {
-        return view('components.home-target');
+        return view('components.home.home-target');
     }
 }

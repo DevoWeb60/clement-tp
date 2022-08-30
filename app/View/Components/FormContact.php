@@ -34,7 +34,7 @@ class FormContact extends Component
             ]
         ];
         $objectsKeys = ['name'];
-        return view('components.form-contact', [
+        return view('components.form.form-contact', [
             'data' => $data,
             'objectsKeys' => $objectsKeys,
         ]);

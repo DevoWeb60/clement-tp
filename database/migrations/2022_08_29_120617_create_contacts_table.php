@@ -22,7 +22,8 @@ class CreateContactsTable extends Migration
             $table->string('phone', 250)->nullable();
             $table->string('email', 250);
             $table->boolean('viewed')->default(false);
-            $table->foreignId('delivery_id')->constrained();
+            $table->unsignedBigInteger('delivery_id')->nullable();
+            $table->foreign('delivery_id')->references('id')->on('deliveries');
             $table->foreignId('object_id')->constrained('contact_objects');
             $table->timestamps();
         });

@@ -23,6 +23,6 @@ class ServicesConstruction extends Component
      */
     public function render()
     {
-        return view('components.services-construction');
+        return view('components.services.services-construction');
     }
 }

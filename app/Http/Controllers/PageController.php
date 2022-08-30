@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -43,5 +44,12 @@ class PageController extends Controller
         $googleLink = explode("src=\"", $google);
         $googleLink = explode("\"", $googleLink[1])[0];
         return view('offer', ["googleLink" => $googleLink]);
+    }
+
+    public function dashboard()
+    {
+        $user = Auth::user();
+
+        return view('dashboard.home', compact('user'));
     }
 }

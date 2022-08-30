@@ -28,6 +28,6 @@ class HomePresentation extends Component
      */
     public function render()
     {
-        return view('components.home-presentation');
+        return view('components.home.home-presentation');
     }
 }

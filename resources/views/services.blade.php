@@ -1,8 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layoutApp title="Nos Services">
     <x-servicesMain />
     <x-servicesConstruction />
     <x-servicesProcess />
     <x-callToContact />
-@endsection
+</x-layoutApp>

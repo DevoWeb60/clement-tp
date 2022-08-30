@@ -25,7 +25,7 @@ class PageMenuStoreRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:250'],
-            'position' => ['required', 'string', 'max:250'],
+            'link' => ['required', 'string', 'max:100'],
         ];
     }
 }

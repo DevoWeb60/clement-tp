@@ -27,7 +27,7 @@ class JobOfferUpdateRequest extends FormRequest
             'name' => ['required', 'string', 'max:250'],
             'description' => ['required', 'string'],
             'salary' => ['string', 'max:250'],
-            'skills' => ['required', 'string', 'max:250'],
+            'skills' => ['required', 'string'],
             'city' => ['string', 'max:250'],
         ];
     }

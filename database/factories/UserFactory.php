@@ -23,10 +23,10 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'firstname' => $this->faker->firstName,
-            'lastname' => $this->faker->lastName,
+            'firstname' => "Jean Brice",
+            'lastname' => 'Lepape',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'email' => $this->faker->safeEmail,
+            'email' => "contact@clement-tp.fr",
         ];
     }
 }

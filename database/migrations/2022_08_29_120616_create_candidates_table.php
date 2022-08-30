@@ -23,7 +23,8 @@ class CreateCandidatesTable extends Migration
             $table->string('phone', 250)->nullable();
             $table->string('firstname', 250);
             $table->string('lastname', 250);
-            $table->foreignId('states_id')->constrained('states');
+            $table->unsignedBigInteger('states_id')->nullable();
+            $table->foreign('states_id')->references('id')->on('candidate_states');
             $table->foreignId('job_offer_id')->constrained();
             $table->timestamps();
         });

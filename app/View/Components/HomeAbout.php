@@ -23,6 +23,6 @@ class HomeAbout extends Component
      */
     public function render()
     {
-        return view('components.home-about');
+        return view('components.home.home-about');
     }
 }

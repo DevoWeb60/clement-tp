@@ -23,6 +23,6 @@ class ServicesProcess extends Component
      */
     public function render()
     {
-        return view('components.services-process');
+        return view('components.services.services-process');
     }
 }

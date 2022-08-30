@@ -1,3 +1,5 @@
+
+
 header {
     @include flexAlignCenter();
     @include flexSpaceBetween();
@@ -50,6 +52,28 @@ header {
             top: 25vh;
             right: 30px;
             display: block;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        nav {
+            display: block;
+
+            ul {
+                @include flexAlignCenter();
+                li {
+                    margin: 0 1.5em;
+                    font-size: $fs-subtitle;
+                    a:hover {
+                        color: darken($primary, 20);
+                    }
+                }
+            }
+        }
+        #hamburger {
+            display: none;
         }
     }
 }

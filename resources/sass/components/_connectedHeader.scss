@@ -1,0 +1,38 @@
+.on-header {
+    @include flexSpaceBetween();
+    @include flexAlignCenter();
+
+    background: $black;
+    padding: 10px;
+    a,
+    h3 {
+        color: $grey;
+    }
+    h3 {
+        display: none;
+        margin: 0;
+    }
+    a:hover {
+        color: $darkGrey;
+    }
+    button {
+        border: none;
+        background: transparent;
+        outline: none;
+        color: $grey;
+        cursor: pointer;
+        transition: $transition;
+        &:hover {
+            color: $darkGrey;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .on-header {
+        padding: 5px 10px;
+        h3 {
+            display: block;
+        }
+    }
+}

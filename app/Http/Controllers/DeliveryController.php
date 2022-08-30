@@ -17,7 +17,7 @@ class DeliveryController extends Controller
     {
         $deliveries = Delivery::all();
 
-        return view('deliveries.index', compact('delivery'));
+        return view('deliveries.index', compact('deliveries'));
     }
 
     /**
@@ -49,7 +49,7 @@ class DeliveryController extends Controller
     {
         $delivery->update($request->validated());
 
-        return view('delivery.update', compact('delivery'));
+        return view('deliveries.update', compact('delivery'));
 
         return redirect()->route('deliveries.index');
     }

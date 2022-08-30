@@ -24,6 +24,6 @@ class TextBox extends Component
      */
     public function render()
     {
-        return view('components.text-box');
+        return view('components.partials.text-box');
     }
 }

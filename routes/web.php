@@ -1,8 +1,19 @@
 <?php
 
-use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DeliveryController;
+use App\Http\Controllers\JobOfferController;
+use App\Http\Controllers\PageMenuController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\SiteInfoController;
+use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\PageContentController;
+use App\Http\Controllers\ContactObjectController;
+use App\Http\Controllers\CandidateStateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +26,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+require __DIR__ . '/auth.php';
+
 // CLIENT SIDE ROUTES
 Route::get("/", [PageController::class, "home"])->name('home');
 Route::get("/a-propos", [PageController::class, "about"])->name('about');
@@ -26,17 +39,18 @@ Route::get("/recrutement/1", [PageController::class, "offer"])->name('offer');
 Route::post('/newsletter', [NewsletterController::class, "store"])->name('newsletter');
 
 // ADMIN SIDE ROUTES
-Route::prefix('/admin')->group(function () {
-    Route::resource('utilisateurs', App\Http\Controllers\UserController::class)->except('edit', 'show', 'destroy');
-    Route::resource('coupons', App\Http\Controllers\DeliveryController::class)->except('edit', 'show');
-    Route::resource('menus', App\Http\Controllers\PageMenuController::class)->except('edit', 'show');
-    Route::resource('pages', App\Http\Controllers\PageContentController::class)->except('edit', 'show');
-    Route::resource('general', App\Http\Controllers\SiteInfoController::class)->except('edit', 'show');
-    Route::resource('offres', App\Http\Controllers\JobOfferController::class)->except('edit', 'show');
-    Route::resource('services', App\Http\Controllers\ServicesController::class)->except('edit', 'show');
-    Route::resource('objets', App\Http\Controllers\ContactObjectController::class)->except('edit', 'show');
-    Route::resource('candidature', App\Http\Controllers\CandidateController::class)->except('edit');
-    Route::resource('messagerie', App\Http\Controllers\ContactController::class)->except('edit');
-    Route::resource('candidature-status', App\Http\Controllers\CandidateStateController::class)->except('edit', 'show');
-    Route::resource('newsletters', App\Http\Controllers\NewsletterController::class)->except('create', 'edit', 'show');
+Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
+    Route::get('/', [PageController::class, 'dashboard'])->name('dashboard');
+    Route::resource('utilisateurs', UserController::class)->except('edit', 'show', 'destroy');
+    Route::resource('coupons', DeliveryController::class)->except('edit', 'show');
+    Route::resource('menus', PageMenuController::class)->except('edit', 'show');
+    Route::resource('pages', PageContentController::class)->except('edit', 'show');
+    Route::resource('general', SiteInfoController::class)->except('edit', 'show');
+    Route::resource('offres', JobOfferController::class)->except('edit', 'show');
+    Route::resource('services', ServicesController::class)->except('edit', 'show');
+    Route::resource('objets', ContactObjectController::class)->except('edit', 'show');
+    Route::resource('candidature', CandidateController::class)->except('edit');
+    Route::resource('messagerie', ContactController::class)->except('edit');
+    Route::resource('candidature-status', CandidateStateController::class)->except('edit', 'show');
+    Route::resource('newsletters', NewsletterController::class)->except('create', 'edit', 'show');
 });

@@ -1,6 +1,5 @@
-@extends('layouts.app')
+<x-layoutApp title="Poste 1">
 
-@section('content')
     <div class="container">
         <div class="title">
             <h2>
@@ -34,8 +33,8 @@
                 <p>45B RUE SAINT GERMAIN, LAVERSINES, 60510</p>
             </div>
         </div>
-        <iframe src="{{ $googleLink }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="{{ $googleLink }}" width="600" height="450" style="border:0;" allowfullscreen=""
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="container">
         <form action="POST" action="#" class="form-offer">
@@ -51,4 +50,4 @@
         </form>
         <button type="submit" class="btn">Soumettre</button>
     </div>
-@endsection
+</x-layoutApp>

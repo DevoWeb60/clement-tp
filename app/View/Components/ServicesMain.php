@@ -23,6 +23,6 @@ class ServicesMain extends Component
      */
     public function render()
     {
-        return view('components.services-main');
+        return view('components.services.services-main');
     }
 }

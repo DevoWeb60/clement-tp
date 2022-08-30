@@ -16,7 +16,9 @@ class PageMenu extends Model
      */
     protected $fillable = [
         'name',
-        'position',
+        'header',
+        'footer',
+        'link',
     ];
 
     /**

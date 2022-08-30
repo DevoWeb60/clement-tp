@@ -17,6 +17,8 @@ class CreateDeliveriesTable extends Migration
             $table->id();
             $table->string('name', 250);
             $table->string('code', 250);
+            $table->text('description');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

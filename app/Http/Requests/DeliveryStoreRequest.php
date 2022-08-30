@@ -26,6 +26,7 @@ class DeliveryStoreRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:250'],
             'code' => ['required', 'string', 'max:250'],
+            'description' => ['required', 'string'],
         ];
     }
 }

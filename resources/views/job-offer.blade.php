@@ -1,12 +1,12 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layoutApp title="Recrutement">
     <div class="container">
         <div class="title">
             <h2>Recrutements</h2>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque pariatur dolorum voluptatem ipsam. Inventore
-                possimus, blanditiis, doloribus excepturi esse laudantium ipsa architecto veritatis id libero quas accusamus
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque pariatur dolorum voluptatem ipsam.
+                Inventore
+                possimus, blanditiis, doloribus excepturi esse laudantium ipsa architecto veritatis id libero quas
+                accusamus
                 eos
                 voluptas sapiente!
             </p>
@@ -33,4 +33,4 @@
             </ul>
         </div>
     </div>
-@endsection
+</x-layoutApp>

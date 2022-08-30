@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Candidate;
+use App\Models\CandidateState;
 use App\Models\JobOffer;
 use App\Models\State;
 
@@ -27,12 +28,12 @@ class CandidateFactory extends Factory
         return [
             'email' => $this->faker->safeEmail,
             'message' => $this->faker->text,
-            'file' => $this->faker->regexify('[A-Za-z0-9]{250}'),
+            'file' => $this->faker->firstname . ' ' . $this->faker->lastname . '.pdf',
             'phone' => $this->faker->phoneNumber,
             'firstname' => $this->faker->firstName,
             'lastname' => $this->faker->lastName,
-            'states_id' => 1,
-            'job_offer_id' => JobOffer::factory(),
+            'states_id' => $this->faker->numberBetween(1, 6),
+            'job_offer_id' => $this->faker->numberBetween(1, 3),
         ];
     }
 }

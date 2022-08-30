@@ -7,10 +7,14 @@ models:
   Delivery:
     name: string:250
     code: string:250
+    active: boolean default:true
+    description: text
 
   PageMenu:
     name: string:250
-    position: string:250
+    header: boolean default:true
+    footer: boolean default:true
+    link: string:100
 
   PageContent:
     content: text
@@ -102,12 +106,12 @@ controllers:
       render: deliveries.create
 
     store:
-      validate: name, code
+      validate: name, code, active, description
       save: delivery
       redirect: deliveries.index
 
     update:
-      validate: name, code
+      validate: name, code, active, description
       update: delivery
       render: delivery.update with:delivery
       redirect: deliveries.index
@@ -124,7 +128,7 @@ controllers:
       render: page-menu.create
 
     store:
-      validate: name, position
+      validate: name, header, footer, link
       save: pageMenu
       redirect: page-menu.index
 

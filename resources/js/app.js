@@ -1,4 +1,10 @@
+import "./bootstrap";
+import Alpine from "alpinejs";
 import { loopOn, toggleAccordion, toggleMenu } from "./functions";
+
+window.Alpine = Alpine;
+
+Alpine.start();
 
 // NAVBAR
 const navMenuButton = "#hamburger";

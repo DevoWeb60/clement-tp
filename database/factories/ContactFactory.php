@@ -30,8 +30,8 @@ class ContactFactory extends Factory
             'phone' => $this->faker->phoneNumber,
             'email' => $this->faker->safeEmail,
             'viewed' => $this->faker->boolean,
-            'delivery_id' => Delivery::factory(),
-            'object_id' => ContactObject::factory(),
+            'delivery_id' => $this->faker->numberBetween(1, 3),
+            'object_id' => $this->faker->numberBetween(1, 3),
         ];
     }
 }

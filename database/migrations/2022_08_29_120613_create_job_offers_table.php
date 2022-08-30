@@ -18,7 +18,7 @@ class CreateJobOffersTable extends Migration
             $table->string('name', 250);
             $table->text('description');
             $table->string('salary', 250)->nullable();
-            $table->string('skills', 250);
+            $table->text('skills');
             $table->string('city', 250)->nullable();
             $table->text('iframe_map')->nullable();
             $table->timestamps();

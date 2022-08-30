@@ -2,17 +2,20 @@
 
 namespace App\View\Components;
 
+use App\Models\PageMenu;
 use Illuminate\View\Component;
 
 class Header extends Component
 {
+    public $role;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($role)
     {
+        $this->role = $role;
     }
 
     /**
@@ -22,6 +25,32 @@ class Header extends Component
      */
     public function render()
     {
-        return view('components.header');
+        $home = "home";
+        $menus = PageMenu::where('header', 1)->orderBy('id')->get();
+
+        if ($this->role === "admin") {
+            $menus = [
+                [
+                    'name' => 'Général',
+                    'link' => 'general.index',
+                ],
+                [
+                    'name' => 'Offres d\'emplois',
+                    'link' => 'offres.index',
+                ],
+                [
+                    'name' => 'Pages',
+                    'link' => 'pages.index',
+                ],
+                [
+                    'name' => 'Services',
+                    'link' => 'services.index',
+                ],
+            ];
+            $menus = json_decode(json_encode($menus));
+            $home = "dashboard";
+        }
+
+        return view('components.partials.header', compact('menus', 'home'));
     }
 }

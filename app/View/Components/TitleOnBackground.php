@@ -26,6 +26,6 @@ class TitleOnBackground extends Component
      */
     public function render()
     {
-        return view('components.title-on-background');
+        return view('components.partials.title-on-background');
     }
 }

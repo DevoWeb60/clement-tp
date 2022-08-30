@@ -23,6 +23,6 @@ class CallToContact extends Component
      */
     public function render()
     {
-        return view('components.call-to-contact');
+        return view('components.partials.call-to-contact');
     }
 }

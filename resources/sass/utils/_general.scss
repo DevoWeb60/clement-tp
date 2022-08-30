@@ -2,6 +2,7 @@
     padding: 0 $containerPadding;
 }
 a {
+    transition: $transition;
     color: $black;
 }
 .btn {

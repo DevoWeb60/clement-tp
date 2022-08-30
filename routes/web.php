@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,7 @@ Route::get("/projets", [PageController::class, "projects"])->name('projects');
 Route::get("/contact", [PageController::class, "contact"])->name('contact');
 Route::get("/recrutement", [PageController::class, "jobOffer"])->name('jobOffer');
 Route::get("/recrutement/1", [PageController::class, "offer"])->name('offer');
-
+Route::post('/newsletter', [NewsletterController::class, "store"])->name('newsletter');
 
 // ADMIN SIDE ROUTES
 Route::prefix('/admin')->group(function () {
@@ -37,4 +38,5 @@ Route::prefix('/admin')->group(function () {
     Route::resource('candidature', App\Http\Controllers\CandidateController::class)->except('edit');
     Route::resource('messagerie', App\Http\Controllers\ContactController::class)->except('edit');
     Route::resource('candidature-status', App\Http\Controllers\CandidateStateController::class)->except('edit', 'show');
+    Route::resource('newsletters', App\Http\Controllers\NewsletterController::class)->except('create', 'edit', 'show');
 });

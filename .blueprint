@@ -1,127 +1,25 @@
 created:
-    - app/Http/Controllers/UserController.php
-    - app/Http/Controllers/DeliveryController.php
-    - app/Http/Controllers/PageMenuController.php
-    - app/Http/Controllers/PageContentController.php
-    - app/Http/Controllers/SiteInfoController.php
-    - app/Http/Controllers/JobOfferController.php
-    - app/Http/Controllers/ServicesController.php
-    - app/Http/Controllers/ContactObjectController.php
-    - app/Http/Controllers/CandidateController.php
-    - app/Http/Controllers/ContactController.php
-    - app/Http/Controllers/CandidateStateController.php
-    - database/factories/UserFactory.php
-    - database/factories/DeliveryFactory.php
-    - database/factories/PageMenuFactory.php
-    - database/factories/PageContentFactory.php
-    - database/factories/SiteInfoFactory.php
-    - database/factories/JobOfferFactory.php
-    - database/factories/ServiceFactory.php
-    - database/factories/ContactObjectFactory.php
-    - database/factories/CandidateFactory.php
-    - database/factories/ContactFactory.php
-    - database/factories/CandidateStateFactory.php
-    - database/migrations/2022_08_29_120608_create_users_table.php
-    - database/migrations/2022_08_29_120609_create_deliveries_table.php
-    - database/migrations/2022_08_29_120610_create_page_menus_table.php
-    - database/migrations/2022_08_29_120611_create_page_contents_table.php
-    - database/migrations/2022_08_29_120612_create_site_infos_table.php
-    - database/migrations/2022_08_29_120613_create_job_offers_table.php
-    - database/migrations/2022_08_29_120614_create_services_table.php
-    - database/migrations/2022_08_29_120615_create_contact_objects_table.php
-    - database/migrations/2022_08_29_120616_create_candidates_table.php
-    - database/migrations/2022_08_29_120617_create_contacts_table.php
-    - database/migrations/2022_08_29_120618_create_candidate_states_table.php
-    - app/Models/User.php
-    - app/Models/Delivery.php
-    - app/Models/PageMenu.php
-    - app/Models/PageContent.php
-    - app/Models/SiteInfo.php
-    - app/Models/JobOffer.php
-    - app/Models/Service.php
-    - app/Models/ContactObject.php
-    - app/Models/Candidate.php
-    - app/Models/Contact.php
-    - app/Models/CandidateState.php
-    - tests/Feature/Http/Controllers/UserControllerTest.php
-    - tests/Feature/Http/Controllers/DeliveryControllerTest.php
-    - tests/Feature/Http/Controllers/PageMenuControllerTest.php
-    - tests/Feature/Http/Controllers/PageContentControllerTest.php
-    - tests/Feature/Http/Controllers/SiteInfoControllerTest.php
-    - tests/Feature/Http/Controllers/JobOfferControllerTest.php
-    - tests/Feature/Http/Controllers/ServicesControllerTest.php
-    - tests/Feature/Http/Controllers/ContactObjectControllerTest.php
-    - tests/Feature/Http/Controllers/CandidateControllerTest.php
-    - tests/Feature/Http/Controllers/ContactControllerTest.php
-    - tests/Feature/Http/Controllers/CandidateStateControllerTest.php
-    - app/Http/Requests/UserStoreRequest.php
-    - app/Http/Requests/UserUpdateRequest.php
-    - app/Http/Requests/DeliveryStoreRequest.php
-    - app/Http/Requests/DeliveryUpdateRequest.php
-    - app/Http/Requests/PageMenuStoreRequest.php
-    - app/Http/Requests/PageMenuUpdateRequest.php
-    - app/Http/Requests/PageContentStoreRequest.php
-    - app/Http/Requests/PageContentUpdateRequest.php
-    - app/Http/Requests/SiteInfoStoreRequest.php
-    - app/Http/Requests/SiteInfoUpdateRequest.php
-    - app/Http/Requests/JobOfferStoreRequest.php
-    - app/Http/Requests/JobOfferUpdateRequest.php
-    - app/Http/Requests/ServiceStoreRequest.php
-    - app/Http/Requests/ServiceUpdateRequest.php
-    - app/Http/Requests/ContactObjectStoreRequest.php
-    - app/Http/Requests/ContactObjectUpdateRequest.php
-    - app/Http/Requests/CandidateStoreRequest.php
-    - app/Http/Requests/CandidateUpdateRequest.php
-    - app/Http/Requests/ContactStoreRequest.php
-    - app/Http/Requests/ContactUpdateRequest.php
-    - app/Http/Requests/CandidateStateStoreRequest.php
-    - app/Http/Requests/CandidateStateUpdateRequest.php
-    - resources/views/users/index.blade.php
-    - resources/views/users/create.blade.php
-    - resources/views/users/update.blade.php
-    - resources/views/deliveries/index.blade.php
-    - resources/views/deliveries/create.blade.php
-    - resources/views/delivery/update.blade.php
-    - resources/views/page-menu/index.blade.php
-    - resources/views/page-menu/create.blade.php
-    - resources/views/page-menu/update.blade.php
-    - resources/views/page-content/index.blade.php
-    - resources/views/page-content/create.blade.php
-    - resources/views/page-content/update.blade.php
-    - resources/views/site-info/index.blade.php
-    - resources/views/site-infos/create.blade.php
-    - resources/views/site-infos/update.blade.php
-    - resources/views/job-offers/index.blade.php
-    - resources/views/job-offers/create.blade.php
-    - resources/views/job-offers/update.blade.php
-    - resources/views/services/index.blade.php
-    - resources/views/services/create.blade.php
-    - resources/views/services/update.blade.php
-    - resources/views/contact-objects/index.blade.php
-    - resources/views/contact-objects/create.blade.php
-    - resources/views/contact-objects/update.blade.php
-    - resources/views/candidates/index.blade.php
-    - resources/views/candidate/show.blade.php
-    - resources/views/candidates/create.blade.php
-    - resources/views/candidate/update.blade.php
-    - resources/views/contacts/index.blade.php
-    - resources/views/contact/show.blade.php
-    - resources/views/contacts/create.blade.php
-    - resources/views/contact/update.blade.php
-    - resources/views/candidate-state/index.blade.php
-    - resources/views/candidate-state/create.blade.php
-    - resources/views/candidate-state/update.blade.php
+    - app/Http/Controllers/NewsletterController.php
+    - database/factories/NewsletterFactory.php
+    - database/migrations/2022_08_29_123943_create_newsletters_table.php
+    - app/Models/Newsletter.php
+    - tests/Feature/Http/Controllers/NewsletterControllerTest.php
+    - app/Http/Requests/NewsletterStoreRequest.php
+    - app/Http/Requests/NewsletterUpdateRequest.php
+    - resources/views/newsletters/index.blade.php
+    - resources/views/newsletters/update.blade.php
 updated:
     - routes/web.php
 models:
-    User: { firstname: 'string:250', lastname: 'string:250', password: 'string:250', email: 'string:250' }
-    Delivery: { name: 'string:250', code: 'string:250' }
-    PageMenu: { name: 'string:250', position: 'string:250' }
-    PageContent: { content: text, image: 'string:250 nullable', section_name: 'string:250', link: 'string:250 nullable' }
-    SiteInfo: { description: text, title: 'string:250', phone: 'string:250', address: 'string:250', iframe_map: 'text nullable', email: 'string:250', logo: 'string:250', favicon: 'string:250' }
-    JobOffer: { name: 'string:250', description: text, salary: 'string:250 nullable', skills: 'string:250', city: 'string:250 nullable', iframe_map: 'text nullable', relationships: { hasMany: Candidate } }
-    Service: { name: 'string:250', customers: 'text nullable', professionnal: 'text nullable', image: 'string:250 nullable' }
-    ContactObject: { name: 'string:100' }
-    Candidate: { email: 'string:250', message: 'text nullable', file: 'string:250', phone: 'string:250 nullable', firstname: 'string:250', lastname: 'string:250', states_id: 'id foreign', job_offer_id: 'id foreign', relationships: { belongsTo: 'CandidateState, JobOffer' } }
-    Contact: { name: 'string:250', message: text, phone: 'string:250 nullable', email: 'string:250', viewed: 'boolean default:false', delivery_id: 'id foreign', object_id: 'id foreign:contact_objects.id', relationships: { BelongsTo: 'Delivery, ContactObject' } }
-    CandidateState: { name: 'string:100' }
+    Candidate: {  }
+    CandidateState: {  }
+    Contact: {  }
+    ContactObject: {  }
+    Delivery: {  }
+    JobOffer: {  }
+    PageContent: {  }
+    PageMenu: {  }
+    Service: {  }
+    SiteInfo: {  }
+    User: {  }
+    Newsletter: { email: 'string:100' }

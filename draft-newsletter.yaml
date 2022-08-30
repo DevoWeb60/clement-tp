@@ -1,0 +1,23 @@
+models:
+  Newsletter:
+    email: string:100
+
+controllers:
+  Newsletter:
+    index:
+      query: all
+      render: newsletters.index with:newsletters
+
+    store:
+      validate: email
+      save: newsletter
+      redirect: newsletters.index
+
+    update:
+      validate: email
+      update: newsletter
+      render: newsletters.update with:newsletter
+      redirect: newsletters.index
+
+    destroy:
+      delete: newsletter

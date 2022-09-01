@@ -1,0 +1,73 @@
+.messenger {
+    width: 100%;
+    padding: 10px;
+    padding-right: 5px;
+    margin: 20px 0;
+    background: $grey;
+    max-height: 80vh;
+
+    .header-messenger {
+        @include flexAlignCenter();
+        @include flexSpaceBetween();
+
+        h2 {
+            text-transform: uppercase;
+        }
+        h4 {
+            font-size: $fs-small + 0.1;
+            color: $black;
+        }
+    }
+
+    ul {
+        height: 67vh;
+        padding-right: 10px;
+        overflow-y: scroll;
+
+        .message {
+            margin: 20px 0;
+            background: $white;
+            box-shadow: $boxShadow;
+            border-radius: 5px;
+            overflow: hidden;
+
+            &.not-viewed {
+                border: 3px solid darken($primary, 5);
+            }
+
+            &.delivery {
+                background: lighten($primary, 25);
+            }
+
+            &.not-viewed.delivery {
+                border: 2px solid $black;
+                background: lighten($primary, 25);
+            }
+
+            .header-message {
+                @include flexAlignCenter();
+                @include flexSpaceBetween();
+
+                h4 {
+                    margin: 5px 0;
+                }
+            }
+
+            .header-message,
+            p {
+                padding: 5px 10px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 820px) {
+    .messenger {
+        padding: 20px;
+        padding-right: 10px;
+        margin: 20px auto;
+        border-radius: $borderRadiusInvert;
+        box-shadow: $boxShadow;
+        width: 820px;
+    }
+}

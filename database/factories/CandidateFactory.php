@@ -33,7 +33,7 @@ class CandidateFactory extends Factory
             'firstname' => $this->faker->firstName,
             'lastname' => $this->faker->lastName,
             'states_id' => $this->faker->numberBetween(1, 6),
-            'job_offer_id' => $this->faker->numberBetween(1, 3),
+            'job_offer_id' => $this->faker->numberBetween(1, 7),
         ];
     }
 }

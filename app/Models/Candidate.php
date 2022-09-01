@@ -36,9 +36,9 @@ class Candidate extends Model
         'job_offer_id' => 'integer',
     ];
 
-    public function candidateState()
+    public function status()
     {
-        return $this->belongsTo(CandidateState::class);
+        return $this->belongsTo(CandidateState::class, 'states_id');
     }
 
     public function jobOffer()

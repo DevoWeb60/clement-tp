@@ -29,9 +29,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory(1)->create();
-        JobOffer::factory(3)->create();
-        Newsletter::factory(12)->create();
-        Contact::factory(6)->create();
-        Candidate::factory(4)->create();
+        JobOffer::factory(7)->create();
+        Newsletter::factory(21)->create();
+        Contact::factory(54)->create();
+        Candidate::factory(18)->create();
     }
 }

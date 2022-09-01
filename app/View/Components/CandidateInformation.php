@@ -2,23 +2,19 @@
 
 namespace App\View\Components;
 
+use App\Models\JobOffer;
 use Illuminate\View\Component;
 
-class InputGroup extends Component
+class CandidateInformation extends Component
 {
-    public $label;
-    public $name;
-    public $type;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($type, $label, $name)
+    public function __construct()
     {
-        $this->type = $type;
-        $this->label = $label;
-        $this->name = $name;
+        //
     }
 
     /**
@@ -28,6 +24,8 @@ class InputGroup extends Component
      */
     public function render()
     {
-        return view('components.form.input-group');
+        $jobOffers = JobOffer::all();
+
+        return view('components.dashboard.candidate-information', compact('jobOffers'));
     }
 }

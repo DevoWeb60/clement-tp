@@ -20,6 +20,7 @@ class JobOffer extends Model
         'salary',
         'skills',
         'city',
+        'active',
         'iframe_map',
     ];
 

@@ -26,8 +26,9 @@ class ContactStoreRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:250'],
             'message' => ['required', 'string'],
-            'phone' => ['string', 'max:250'],
+            'phone' => ['max:10'],
             'email' => ['required', 'email', 'max:250'],
+            'object_id' => ['required'],
         ];
     }
 }

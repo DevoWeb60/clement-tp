@@ -1,0 +1,39 @@
+.candidate-information {
+    width: 100%;
+    padding: 20px;
+    margin: 20px auto;
+    text-align: center;
+
+    h2 {
+        text-transform: uppercase;
+    }
+
+    .offers {
+        .offer {
+            background: $grey;
+            border-radius: 5px;
+            position: relative;
+            padding: 10px 10px 10px 30px;
+            margin: 30px 0;
+            @include flexSpaceBetween();
+            @include flexAlignCenter();
+
+            .badge {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translate(-50%, -50%);
+                background: $primary;
+                border-radius: 3px;
+                padding: 5px 10px;
+                font-size: $fs-small;
+                color: $white;
+                border: 2px solid $primary;
+            }
+
+            h4 {
+                margin: 0;
+            }
+        }
+    }
+}

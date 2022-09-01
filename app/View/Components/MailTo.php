@@ -4,21 +4,17 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class InputGroup extends Component
+class MailTo extends Component
 {
-    public $label;
-    public $name;
-    public $type;
+    public $mail;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($type, $label, $name)
+    public function __construct($mail)
     {
-        $this->type = $type;
-        $this->label = $label;
-        $this->name = $name;
+        $this->mail = $mail;
     }
 
     /**
@@ -28,6 +24,6 @@ class InputGroup extends Component
      */
     public function render()
     {
-        return view('components.form.input-group');
+        return view('components.partials.mail-to');
     }
 }

@@ -4,21 +4,19 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class InputGroup extends Component
+class Form extends Component
 {
-    public $label;
-    public $name;
-    public $type;
+    public $action;
+    public $method;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($type, $label, $name)
+    public function __construct($action, $method)
     {
-        $this->type = $type;
-        $this->label = $label;
-        $this->name = $name;
+        $this->action = $action;
+        $this->method = $method;
     }
 
     /**
@@ -28,6 +26,6 @@ class InputGroup extends Component
      */
     public function render()
     {
-        return view('components.form.input-group');
+        return view('components.form.form');
     }
 }

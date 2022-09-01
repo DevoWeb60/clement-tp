@@ -26,6 +26,8 @@ body {
 @import "components/selectGroup";
 @import "components/subHeader";
 @import "components/connectedHeader";
+@import "components/messenger";
+@import "components/candidateInformation";
 
 // PAGE
 @import "pages/home";
@@ -35,3 +37,11 @@ body {
 @import "pages/projects";
 @import "pages/jobOffers";
 @import "pages/offer";
+
+// DASHBOARD PAGE
+@import "dashboard/home";
+@import "dashboard/offers";
+@import "dashboard/candidates";
+
+// PARTIALS
+@import "partials/singleMessage";

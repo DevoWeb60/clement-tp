@@ -5,38 +5,22 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContactStoreRequest;
 use App\Http\Requests\ContactUpdateRequest;
 use App\Models\Contact;
+use App\Models\Delivery;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
-        $contacts = Contact::all();
-
-        return view('contacts.index', compact('contact'));
-    }
 
     /**
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Contact $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Contact $contact)
+    public function show(Request $request, Contact $message)
     {
-        return view('contact.show', compact('contact'));
-    }
+        $message->update(['viewed' => 1]);
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-        return view('contacts.create');
+        return view('contact.show', compact('message'));
     }
 
     /**
@@ -45,23 +29,12 @@ class ContactController extends Controller
      */
     public function store(ContactStoreRequest $request)
     {
+        $request->merge(['delivery_id' => $this->checkDelivery($request->delivery_id)]);
+
         $contact = Contact::create($request->validated());
+        $contact->update(['delivery_id' => $request->delivery_id]);
 
-        return redirect()->route('contacts.index');
-    }
-
-    /**
-     * @param \App\Http\Requests\ContactUpdateRequest $request
-     * @param \App\Models\Contact $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function update(ContactUpdateRequest $request, Contact $contact)
-    {
-        $contact->update($request->validated());
-
-        return view('contact.update', compact('contact'));
-
-        return redirect()->route('contacts.index');
+        return redirect()->route('contact');
     }
 
     /**
@@ -69,8 +42,27 @@ class ContactController extends Controller
      * @param \App\Models\Contact $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Contact $contact)
+    public function destroy(Request $request, Contact $message)
     {
-        $contact->delete();
+        $message->delete();
+        return redirect()->route('dashboard');
+    }
+
+    public function checkDelivery($code)
+    {
+        if ($code) {
+            $delivery = Delivery::where('code', $code)->first();
+
+            if ($delivery) {
+                if ($delivery->active == 1) {
+                    $code = $delivery->id;
+                }
+            }
+        }
+        if (!filter_var($code, FILTER_VALIDATE_INT)) {
+            $code = null;
+        }
+
+        return strval($code);
     }
 }

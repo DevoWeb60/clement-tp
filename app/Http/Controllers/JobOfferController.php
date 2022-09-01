@@ -17,7 +17,7 @@ class JobOfferController extends Controller
     {
         $jobOffers = JobOffer::all();
 
-        return view('job-offers.index', compact('jobOffer'));
+        return view('job-offers.index', compact('jobOffers'));
     }
 
     /**
@@ -27,6 +27,16 @@ class JobOfferController extends Controller
     public function create(Request $request)
     {
         return view('job-offers.create');
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Request $request, JobOffer $offre)
+    {
+
+        return view('job-offers.edit', compact('offre'));
     }
 
     /**

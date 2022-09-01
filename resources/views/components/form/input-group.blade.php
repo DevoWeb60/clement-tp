@@ -1,10 +1,9 @@
-<div class="input-group">
+<div {{ $attributes->merge(['class' => 'input-group']) }}>
     @if ($type === 'textarea')
-        <textarea name="{{ $name }}" id="{{ $name }}" placeholder="{{ $label }}"
-            required="{{ $required }}"></textarea>
+        <textarea name="{{ $name }}" id="{{ $name }}" placeholder="{{ $label }}"></textarea>
     @else
         <input type="{{ $type }}" name="{{ $name }}" id="input-{{ $name }}"
-            placeholder="{{ $label }}" required="{{ $required }}">
+            placeholder="{{ $label }}" value="{{ $slot }}">
     @endif
     <label for="input-{{ $name }}">{{ $label }}</label>
 </div>

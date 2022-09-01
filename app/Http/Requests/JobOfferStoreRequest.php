@@ -29,6 +29,7 @@ class JobOfferStoreRequest extends FormRequest
             'salary' => ['string', 'max:250'],
             'skills' => ['required', 'string'],
             'city' => ['string', 'max:250'],
+            'active' => ['required', 'boolean'],
         ];
     }
 }

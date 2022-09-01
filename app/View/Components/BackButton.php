@@ -4,21 +4,17 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class InputGroup extends Component
+class BackButton extends Component
 {
-    public $label;
-    public $name;
-    public $type;
+    public $route;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($type, $label, $name)
+    public function __construct($route)
     {
-        $this->type = $type;
-        $this->label = $label;
-        $this->name = $name;
+        $this->route = $route;
     }
 
     /**
@@ -28,6 +24,6 @@ class InputGroup extends Component
      */
     public function render()
     {
-        return view('components.form.input-group');
+        return view('components.partials.back-button');
     }
 }

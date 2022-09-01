@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CandidateStoreRequest;
 use App\Http\Requests\CandidateUpdateRequest;
 use App\Models\Candidate;
+use App\Models\CandidateState;
+use App\Models\JobOffer;
 use Illuminate\Http\Request;
 
 class CandidateController extends Controller
@@ -15,9 +17,11 @@ class CandidateController extends Controller
      */
     public function index(Request $request)
     {
-        $candidates = Candidate::all();
+        $candidates = Candidate::where('job_offer_id', $request->id)->get();
+        $jobOffer = JobOffer::where('id', $request->id)->first();
 
-        return view('candidates.index', compact('candidate'));
+
+        return view('candidates.index', compact('candidates', 'jobOffer'));
     }
 
     /**
@@ -25,9 +29,11 @@ class CandidateController extends Controller
      * @param \App\Models\Candidate $candidate
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Candidate $candidate)
+    public function show(Request $request, Candidate $candidature)
     {
-        return view('candidate.show', compact('candidate'));
+        $states = CandidateState::all();
+
+        return view('candidates.show', compact('candidature', 'states'));
     }
 
     /**
@@ -55,13 +61,13 @@ class CandidateController extends Controller
      * @param \App\Models\Candidate $candidate
      * @return \Illuminate\Http\Response
      */
-    public function update(CandidateUpdateRequest $request, Candidate $candidate)
+    public function update(Request $request, Candidate $candidature)
     {
-        $candidate->update($request->validated());
+        $candidature->update([
+            'states_id' => $request->states_id,
+        ]);
 
-        return view('candidate.update', compact('candidate'));
-
-        return redirect()->route('candidates.index');
+        return redirect()->route('candidature.show', $candidature);
     }
 
     /**
@@ -69,8 +75,10 @@ class CandidateController extends Controller
      * @param \App\Models\Candidate $candidate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Candidate $candidate)
+    public function destroy(Request $request, Candidate $candidature)
     {
-        $candidate->delete();
+        $offerId = $candidature->job_offer_id;
+        $candidature->delete();
+        return redirect()->route('candidature.index', ['id' => $offerId]);
     }
 }

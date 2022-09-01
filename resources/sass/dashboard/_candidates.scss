@@ -1,0 +1,64 @@
+#index-candidates {
+    .card {
+        border: 3px solid $primary;
+
+        ul li,
+        .actions {
+            @include flexSpaceBetween();
+            @include flexAlignCenter();
+        }
+
+        ul li {
+            margin: 20px 0;
+        }
+    }
+}
+#show-candidates {
+    .container {
+        @include boxContainer();
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 0;
+        overflow: hidden;
+    }
+    .container,
+    .status-form {
+        max-width: 1200px;
+        margin: 30px auto;
+
+        select {
+            margin-bottom: 10px;
+        }
+    }
+    .candidate {
+        padding: $containerPadding;
+    }
+    .header-candidate {
+        @include flexSpaceBetween();
+    }
+    .contact-info,
+    .info {
+        display: flex;
+        flex-direction: column;
+
+        a:first-child,
+        h2 {
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            margin: 0;
+        }
+    }
+
+    .motivation {
+        margin-top: 40px;
+        p {
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: $boxShadow;
+            background: $white;
+        }
+    }
+}

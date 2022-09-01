@@ -27,11 +27,16 @@ class ContactFactory extends Factory
         return [
             'name' => $this->faker->name,
             'message' => $this->faker->text,
-            'phone' => $this->faker->phoneNumber,
+            'phone' => $this->randomPhoneNumber(),
             'email' => $this->faker->safeEmail,
             'viewed' => $this->faker->boolean,
             'delivery_id' => $this->faker->numberBetween(1, 3),
             'object_id' => $this->faker->numberBetween(1, 3),
         ];
+    }
+
+    public function randomPhoneNumber()
+    {
+        return '0' . $this->faker->numberBetween(0, 9) . ' ' . $this->faker->numberBetween(10, 99) . ' ' . $this->faker->numberBetween(10, 99) . ' ' . $this->faker->numberBetween(10, 99) . ' ' . $this->faker->numberBetween(10, 99);
     }
 }

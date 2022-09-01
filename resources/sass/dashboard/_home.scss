@@ -1,0 +1,19 @@
+#home-dashboard {
+    padding: 0;
+    .information {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    #home-dashboard {
+        @include flexSpaceBetween();
+        padding: 0 $containerPadding;
+        align-items: flex-start;
+
+        .information {
+            width: calc(100% - 840px);
+            @include flexAlignCenter("column");
+        }
+    }
+}

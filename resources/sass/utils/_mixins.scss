@@ -28,6 +28,11 @@
         flex-direction: column;
     }
 }
+@mixin flexGalery() {
+    @include flexCenter();
+    flex-wrap: wrap;
+    gap: 40px;
+}
 
 // GENERAL
 
@@ -56,11 +61,49 @@
         background: transparent;
         color: darken($primary, 10);
     }
+
+    &.black {
+        background: $black;
+        border-color: $black;
+        color: $white;
+
+        &:hover {
+            background: transparent;
+            color: $black;
+        }
+    }
+
+    &.red {
+        background: $red;
+        border-color: $red;
+        color: $white;
+        &:hover {
+            background: transparent;
+            color: $red;
+        }
+    }
+
+    &.light {
+        background: $darkGrey;
+        border-color: $darkGrey;
+        color: $white;
+
+        &:hover {
+            background: $white;
+            color: darken($primary, 20);
+        }
+    }
     @if $direction == "normale" {
         border-radius: 5px 30px 5px 30px;
     }
     @if $direction == "invert" {
         border-radius: 30px 5px 30px 5px;
+    }
+
+    &.back {
+        position: fixed;
+        bottom: 50px;
+        left: 50px;
     }
 }
 
@@ -88,4 +131,13 @@
     &:hover {
         background: transparent;
     }
+}
+
+@mixin boxContainer() {
+    background: $grey;
+    padding: $containerPadding;
+    border-radius: $borderRadius;
+    border-left: 2px solid $primary;
+    border-bottom: 2px solid $primary;
+    box-shadow: $boxShadow;
 }

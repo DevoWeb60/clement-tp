@@ -1,9 +1,27 @@
-.container {
-    padding: 0 $containerPadding;
-}
 a {
     transition: $transition;
     color: $black;
+
+    &:hover {
+        color: darken($primary, 10);
+    }
+}
+img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+iframe {
+    width: 100%;
+}
+strong {
+    font-weight: bold !important;
+}
+button {
+    cursor: pointer;
+}
+.container {
+    padding: 0 $containerPadding;
 }
 .btn {
     @include button($primary, $black, "normale");
@@ -11,10 +29,9 @@ a {
 .btn-invert {
     @include button($primary, $black, "invert");
 }
-img {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
+.btn-normale {
+    @include button($primary, $black, "normale");
+    border-radius: 5px;
 }
 .svg {
     width: 40px;
@@ -31,14 +48,113 @@ img {
         width: 47%;
     }
 }
-.title * {
-    text-align: center;
+.title {
+    margin: 40px 0;
+    h2 {
+        font-size: $fs-title + 0.5;
+    }
+    * {
+        text-align: center;
+    }
 }
-iframe {
-    width: 100%;
+.hidden {
+    display: none;
 }
 .muted {
     font-style: italic;
     color: $darkGrey;
     font-size: $fs-small;
+}
+.row {
+    @include flexAlignCenter();
+}
+.space-between {
+    @include flexSpaceBetween();
+}
+.center {
+    @include flexCenter();
+}
+.controls {
+    display: flex;
+    flex-direction: column-reverse;
+
+    .control {
+        display: block;
+        background: black;
+        padding: 15px 10px;
+        border: none;
+        width: 100%;
+        text-align: center;
+        color: $white;
+        cursor: pointer;
+        transition: $transition;
+
+        &.blue {
+            background: lighten($blue, 10);
+            color: darken($blue, 50);
+        }
+        &.grey {
+            background: $grey;
+            color: $black;
+        }
+        &.red {
+            background: $red;
+            color: darken($red, 55);
+        }
+
+        &.delete {
+            padding: 5px 10px;
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+.galery {
+    @include flexGalery();
+    margin: 50px 0;
+}
+.card {
+    position: relative;
+    width: 400px;
+    background: $grey;
+    border-radius: $borderRadius;
+    box-shadow: $boxShadow;
+    padding: $containerPadding;
+
+    &.active {
+        border: 3px solid $primary;
+    }
+
+    .badge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(10%, -90%);
+        font-size: $fs-subtitle;
+        color: $primary;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .controls {
+        display: grid;
+        &.c-3 {
+            grid-template-columns: 0.3fr 1.4fr 0.3fr;
+        }
+        &.c-4 {
+            grid-template-columns: 0.3fr 0.6fr 0.9fr 0.3fr;
+        }
+
+        .control {
+            display: inline-block;
+
+            &.delete {
+                padding: 15px 10px;
+            }
+        }
+    }
 }

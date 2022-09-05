@@ -28,6 +28,9 @@ body {
 @import "components/connectedHeader";
 @import "components/messenger";
 @import "components/candidateInformation";
+@import "components/deliveriesList";
+@import "components/pageMenuItem";
+@import "components/pageMenuList";
 
 // PAGE
 @import "pages/home";
@@ -42,6 +45,7 @@ body {
 @import "dashboard/home";
 @import "dashboard/offers";
 @import "dashboard/candidates";
+@import "dashboard/deliveries";
 
 // PARTIALS
 @import "partials/singleMessage";

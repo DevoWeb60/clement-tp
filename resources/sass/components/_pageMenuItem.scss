@@ -1,0 +1,8 @@
+.page-menu-item {
+    @include flexAlignCenter();
+    justify-content: space-between;
+
+    .controls {
+        width: 30%;
+    }
+}

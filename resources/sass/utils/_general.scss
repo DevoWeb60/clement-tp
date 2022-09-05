@@ -6,6 +6,16 @@ a {
         color: darken($primary, 10);
     }
 }
+form {
+    width: 100%;
+    &.button {
+        width: auto;
+    }
+
+    &.spacing {
+        margin: 30px 0;
+    }
+}
 img {
     width: 100%;
     object-fit: cover;
@@ -47,6 +57,9 @@ button {
     div {
         width: 47%;
     }
+}
+.button-space {
+    margin-top: 30px;
 }
 .title {
     margin: 40px 0;
@@ -126,27 +139,23 @@ button {
     &.active {
         border: 3px solid $primary;
     }
-
-    .badge {
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translate(10%, -90%);
-        font-size: $fs-subtitle;
-        color: $primary;
-        text-transform: uppercase;
-        font-weight: bold;
-    }
 }
 
 @media screen and (min-width: 768px) {
     .controls {
         display: grid;
+
+        &.c-2 {
+            grid-template-columns: 0.3fr 1fr;
+        }
         &.c-3 {
             grid-template-columns: 0.3fr 1.4fr 0.3fr;
         }
         &.c-4 {
             grid-template-columns: 0.3fr 0.6fr 0.9fr 0.3fr;
+        }
+        &.c-2-equals {
+            grid-template-columns: 1fr 1fr;
         }
 
         .control {
@@ -156,5 +165,12 @@ button {
                 padding: 15px 10px;
             }
         }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1300px;
+        margin: 30px auto;
     }
 }

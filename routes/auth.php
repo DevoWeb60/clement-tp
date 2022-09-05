@@ -15,7 +15,7 @@ Route::middleware('guest')->group(function () {
         ->name('register');
     Route::post('register', [RegisteredUserController::class, 'store']);
 
-    Route::get('/admin', [AuthenticatedSessionController::class, 'create']);
+    Route::get('/admin', [AuthenticatedSessionController::class, 'create'])->name('login-form');
     Route::post('login', [AuthenticatedSessionController::class, 'store'])->name('login');
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])

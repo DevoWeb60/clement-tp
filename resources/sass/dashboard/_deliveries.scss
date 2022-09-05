@@ -1,0 +1,11 @@
+#index-deliveries {
+    .container {
+        @include flexSpaceBetween();
+        gap: 50px;
+
+        .left,
+        .delivery-form {
+            width: 50%;
+        }
+    }
+}

@@ -133,11 +133,17 @@
     }
 }
 
-@mixin boxContainer() {
+@mixin boxContainer($direction: "normale") {
     background: $grey;
     padding: $containerPadding;
     border-radius: $borderRadius;
     border-left: 2px solid $primary;
     border-bottom: 2px solid $primary;
     box-shadow: $boxShadow;
+
+    @if $direction == "invert" {
+        border-left: none;
+        border-right: 2px solid $primary;
+        border-radius: $borderRadiusInvert;
+    }
 }

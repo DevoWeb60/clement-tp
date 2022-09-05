@@ -25,8 +25,8 @@
                         <div class="actions">
                             <a href="{{ route('candidature.show', $candidate) }}" class="btn-invert black">Voir la
                                 candidature</a>
-                            <x-form action="{{ route('candidature.destroy', $candidate) }}" method="DELETE"
-                                class="form-inline">
+                            <x-form class="button" action="{{ route('candidature.destroy', $candidate) }}"
+                                method="DELETE">
                                 <button type="submit" class="btn red">Supprimer la candidature</button>
                             </x-form>
                     </li>

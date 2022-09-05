@@ -1,0 +1,6 @@
+.page-menu-list {
+    .header,
+    .footer {
+        @include boxContainer();
+    }
+}

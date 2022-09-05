@@ -43,8 +43,8 @@ Route::post('/newsletter', [NewsletterController::class, "store"])->name('newsle
 Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
     Route::get('/', [PageController::class, 'dashboard'])->name('dashboard');
     Route::resource('utilisateurs', UserController::class)->except('edit', 'show', 'destroy');
-    Route::resource('coupons', DeliveryController::class)->except('edit', 'show');
-    Route::resource('menus', PageMenuController::class)->except('edit', 'show');
+    Route::resource('coupons', DeliveryController::class)->except('show', 'create');
+    Route::resource('menus', PageMenuController::class)->except('show');
     Route::resource('pages', PageContentController::class)->except('edit', 'show');
     Route::resource('general', SiteInfoController::class)->except('edit', 'show');
     Route::resource('offres', JobOfferController::class)->except('show');

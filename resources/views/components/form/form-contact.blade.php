@@ -1,13 +1,4 @@
 <x-form method="POST" action="{{ route('contact.store') }}" class="form-contact">
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <x-inputGroup label="Nom/Entreprise" name="name" type="text" />
     <x-inputGroup label="Adresse mail" name="email" type="email" />
     <x-inputGroup label="Téléphone (facultatif)" name="phone" type="tel" />

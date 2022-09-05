@@ -15,18 +15,18 @@ class DeliveryController extends Controller
      */
     public function index(Request $request)
     {
-        $deliveries = Delivery::all();
-
-        return view('deliveries.index', compact('deliveries'));
+        $id = "false";
+        return view('deliveries.index', compact('id'));
     }
 
     /**
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function edit(Request $request, Delivery $coupon)
     {
-        return view('deliveries.create');
+        $id = $coupon->id;
+        return view('deliveries.index', compact('coupon', 'id'));
     }
 
     /**
@@ -35,9 +35,11 @@ class DeliveryController extends Controller
      */
     public function store(DeliveryStoreRequest $request)
     {
+        $active = $request->active;
         $delivery = Delivery::create($request->validated());
+        $delivery->update(['active' => $active ? true : false]);
 
-        return redirect()->route('deliveries.index');
+        return redirect()->route('coupons.index');
     }
 
     /**
@@ -45,13 +47,13 @@ class DeliveryController extends Controller
      * @param \App\Models\Delivery $delivery
      * @return \Illuminate\Http\Response
      */
-    public function update(DeliveryUpdateRequest $request, Delivery $delivery)
+    public function update(DeliveryUpdateRequest $request, Delivery $coupon)
     {
-        $delivery->update($request->validated());
+        $active = $request->active;
+        $coupon->update($request->validated());
+        $coupon->update(['active' => $active ? true : false]);
 
-        return view('deliveries.update', compact('delivery'));
-
-        return redirect()->route('deliveries.index');
+        return redirect()->route('coupons.index');
     }
 
     /**
@@ -59,8 +61,10 @@ class DeliveryController extends Controller
      * @param \App\Models\Delivery $delivery
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Delivery $delivery)
+    public function destroy(Request $request, Delivery $coupon)
     {
-        $delivery->delete();
+        $coupon->delete();
+
+        return redirect()->route('coupons.index');
     }
 }

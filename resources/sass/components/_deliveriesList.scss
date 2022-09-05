@@ -1,0 +1,28 @@
+.deliveries-list {
+    @include boxContainer();
+    width: 100%;
+    .delivery {
+        position: relative;
+        background: $white;
+        box-shadow: $boxShadow;
+        border-radius: 5px;
+        overflow: hidden;
+        margin: 30px 0;
+
+        .content {
+            padding: 10px;
+        }
+        .badge {
+            background: $primary;
+            color: $white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        h3,
+        .description {
+            @include flexAlignCenter();
+            justify-content: space-between;
+        }
+    }
+}

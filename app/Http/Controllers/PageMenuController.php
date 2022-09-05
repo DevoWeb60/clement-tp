@@ -17,16 +17,16 @@ class PageMenuController extends Controller
     {
         $pageMenus = PageMenu::all();
 
-        return view('page-menu.index', compact('pageMenu'));
+        return view('page-menu.index', compact('pageMenus'));
     }
 
     /**
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function edit(Request $request, PageMenu $pageMenu)
     {
-        return view('page-menu.create');
+        return view('page-menu.edit', compact('pageMenu'));
     }
 
     /**

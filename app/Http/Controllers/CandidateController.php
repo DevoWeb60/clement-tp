@@ -63,9 +63,11 @@ class CandidateController extends Controller
      */
     public function update(Request $request, Candidate $candidature)
     {
-        $candidature->update([
-            'states_id' => $request->states_id,
-        ]);
+        if ($request->states_id) {
+            $candidature->update([
+                'states_id' => $request->states_id,
+            ]);
+        }
 
         return redirect()->route('candidature.show', $candidature);
     }

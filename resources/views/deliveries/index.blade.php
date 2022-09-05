@@ -1,10 +1,10 @@
 <x-layoutAdmin title="Coupons">
-    <ul>
-        @foreach ($deliveries as $delivery)
-            <li>
-                {{ $delivery->name }}
-                {{ $delivery->code }}
-            </li>
-        @endforeach
-    </ul>
+    <div id="index-deliveries">
+        <div class="container">
+            <div class="left">
+                <x-deliveriesList />
+            </div>
+            <x-deliveryForm :id="$id" />
+        </div>
+    </div>
 </x-layoutAdmin>

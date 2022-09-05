@@ -36,9 +36,8 @@ Route::get("/projets", [PageController::class, "projects"])->name('projects');
 Route::get("/contact", [PageController::class, "contact"])->name('contact');
 Route::post("/contact/", [ContactController::class, "store"])->name('contact.store');
 Route::get("/recrutement", [PageController::class, "jobOffer"])->name('jobOffer');
-Route::get("/recrutement/1", [PageController::class, "offer"])->name('offer');
+Route::get("/recrutement/{id}", [PageController::class, "offer"])->name('offer');
 Route::post('/newsletter', [NewsletterController::class, "store"])->name('newsletter');
-
 // ADMIN SIDE ROUTES
 Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
     Route::get('/', [PageController::class, 'dashboard'])->name('dashboard');
@@ -53,5 +52,6 @@ Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
     Route::resource('candidature', CandidateController::class)->except('edit');
     Route::resource('message', ContactController::class)->only('show', 'destroy');
     Route::resource('candidature-status', CandidateStateController::class)->except('edit', 'show');
-    Route::resource('newsletters', NewsletterController::class)->except('create', 'edit', 'show');
+    Route::resource('newsletters', NewsletterController::class)->only('index', 'destroy');
+    Route::get('/newsletters/export', [NewsletterController::class, 'exportToCSV'])->name('newsletters.export');
 });

@@ -2,6 +2,8 @@
 
 namespace App\View\Components;
 
+use App\Models\PageMenu;
+use App\Models\SiteInfo;
 use Illuminate\View\Component;
 
 class Footer extends Component
@@ -23,6 +25,8 @@ class Footer extends Component
      */
     public function render()
     {
-        return view('components.partials.footer');
+        $siteInfo = SiteInfo::first();
+        $menus = PageMenu::where('footer', true)->get();
+        return view('components.partials.footer', compact('siteInfo', 'menus'));
     }
 }

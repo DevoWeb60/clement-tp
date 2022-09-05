@@ -1,12 +1,11 @@
 <x-layoutApp title="Poste 1">
-
     <div class="container">
         <div class="title">
             <h2>
-                Poste 1
+                {{ $offer->name }}
                 <br>
                 <span class="muted">
-                    La Route Qui Tourne
+                    {{ $offer->city }}
                 </span>
             </h2>
         </div>
@@ -14,23 +13,23 @@
     <div class="offer">
         <div class="container">
             <p class="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, non?
+                {{ $offer->description }}
             </p>
             <div class="skills">
                 <h3>Pré-requis</h3>
                 <ul>
-                    <li>Compétence 1</li>
-                    <li>Compétence 2</li>
-                    <li>Compétence 3</li>
+                    @foreach ($skills as $skill)
+                        <li>{{ $skill }}</li>
+                    @endforeach
                 </ul>
             </div>
             <div class="earn">
                 <h3>Salaire</h3>
-                <p>1200 €/mois</p>
+                <p>{{ $offer->salary }}</p>
             </div>
             <div class="location">
                 <h3>Prise de poste</h3>
-                <p>45B RUE SAINT GERMAIN, LAVERSINES, 60510</p>
+                <p>{{ $offer->city }}</p>
             </div>
         </div>
         <iframe src="{{ $googleLink }}" width="600" height="450" style="border:0;" allowfullscreen=""

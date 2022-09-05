@@ -15,7 +15,7 @@ class NewsletterController extends Controller
      */
     public function index(Request $request)
     {
-        $newsletters = Newsletter::all();
+        $newsletters = Newsletter::orderBy('id', 'DESC')->get();
 
         return view('newsletters.index', compact('newsletters'));
     }
@@ -27,22 +27,7 @@ class NewsletterController extends Controller
     public function store(NewsletterStoreRequest $request)
     {
         $newsletter = Newsletter::create($request->validated());
-
-        return redirect()->route('newsletters.index');
-    }
-
-    /**
-     * @param \App\Http\Requests\NewsletterUpdateRequest $request
-     * @param \App\Models\Newsletter $newsletter
-     * @return \Illuminate\Http\Response
-     */
-    public function update(NewsletterUpdateRequest $request, Newsletter $newsletter)
-    {
-        $newsletter->update($request->validated());
-
-        return view('newsletters.update', compact('newsletter'));
-
-        return redirect()->route('newsletters.index');
+        return redirect()->route($request->route);
     }
 
     /**
@@ -53,5 +38,27 @@ class NewsletterController extends Controller
     public function destroy(Request $request, Newsletter $newsletter)
     {
         $newsletter->delete();
+
+        return redirect()->route('newsletters.index');
+    }
+
+    public function exportToCSV()
+    {
+        $newsletters = Newsletter::all();
+        $filename = "newsletters.csv";
+        $handle = fopen($filename, 'w+');
+        fputcsv($handle, array('id', 'email', 'created_at'));
+
+        foreach ($newsletters as $newsletter) {
+            fputcsv($handle, array($newsletter->id, $newsletter->email, $newsletter->created_at));
+        }
+
+        fclose($handle);
+
+        $headers = array(
+            'Content-Type' => 'text/csv',
+        );
+
+        return response()->download($filename, 'newsletters.csv', $headers);
     }
 }

@@ -14,22 +14,16 @@
         <div class="offers">
             <h2>Postes à pourvoir</h2>
             <ul>
-                <li>
-                    <a href="{{ route('offer') }}">
-                        <h3>Poste 1</h3>
-                        <span class="muted">
-                            La Roue Qui Tourne
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('offer') }}">
-                        <h3>Poste 2</h3>
-                        <span class="muted">
-                            Beauvais
-                        </span>
-                    </a>
-                </li>
+                @foreach ($jobOffers as $offer)
+                    <li>
+                        <a href="{{ route('offer', ['id' => $offer->id]) }}">
+                            <h3>{{ $offer->name }}</h3>
+                            <span class="muted">
+                                {{ $offer->city }}
+                            </span>
+                        </a>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </div>

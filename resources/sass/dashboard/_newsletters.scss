@@ -1,0 +1,18 @@
+#index-newsletters {
+    .newsletters {
+        @include boxContainer();
+
+        li {
+            @include flexAlignCenter();
+            @include flexSpaceBetween();
+            width: 100%;
+            padding: 0 10px;
+            border-radius: 5px;
+            transition: $transition;
+
+            &:hover {
+                background: lighten($primary, 30);
+            }
+        }
+    }
+}

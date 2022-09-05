@@ -1,7 +1,7 @@
 footer {
     @include flexCenter("column");
     padding: 30px 20px;
-    img {
+    img.logo-footer {
         display: block;
         margin: 20px auto;
         width: 100px;
@@ -45,6 +45,7 @@ footer {
         li,
         img {
             margin: 0;
+            transition: $transition;
         }
         ul {
             @include flexSpaceBetween();
@@ -59,6 +60,10 @@ footer {
                 img {
                     width: 40px;
                     height: 40px;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
                 }
                 &:hover {
                     color: darken($primary, 10);

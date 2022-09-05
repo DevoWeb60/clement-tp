@@ -1,20 +1,18 @@
-<footer>
+<footer id="footer">
     <div class="main">
         <a href="#header">
-            <img src="{{ asset('storage/svg/min-logo.svg') }}"
+            <img src="{{ asset('storage/svg/min-logo.svg') }}" class="logo-footer"
                 alt="Clément TP construction rénovation batîment haut de france">
         </a>
-        <form action="" method="POST">
-            <input type="text" name="newsletter" placeholder="Votre adresse mail">
+        <x-form action="{{ route('newsletter') }}" method="POST">
+            <input type="hidden" name="route" value="{{ request()->route()->getName() }}">
+            <input type="text" name="email" placeholder="Votre adresse mail">
             <button type="submit">S'inscrire</button>
-        </form>
+        </x-form>
         <ul>
-            <li><a href="{{ route('home') }}">Accueil</a></li>
-            <li><a href="{{ route('about') }}">A propos</a></li>
-            <li><a href="{{ route('services') }}">Nos services</a></li>
-            <li><a href="{{ route('projects') }}">Nos projets</a></li>
-            <li><a href="{{ route('contact') }}">Contact</a></li>
-            <li><a href="{{ route('jobOffer') }}">Recrutement</a></li>
+            @foreach ($menus as $menu)
+                <li><a href="{{ route($menu->link) }}">{{ $menu->name }}</a></li>
+            @endforeach
             <li><a href="{{ route('home') }}">Politique de confidentialité</a></li>
         </ul>
     </div>
@@ -22,22 +20,22 @@
         <h3>Suivez nous</h3>
         <ul>
             <li>
-                <a href="http://facebook.com" target="_blank">
+                <a href="{{ $siteInfo->facebook }}" target="_blank">
                     <img src="{{ asset('storage/svg/facebook.svg') }}" alt="Facebook btp">
                 </a>
             </li>
             <li>
-                <a href="http://instagram.com" target="_blank">
+                <a href="{{ $siteInfo->instagram }}" target="_blank">
                     <img src="{{ asset('storage/svg/instagram.svg') }}" alt="instagram btp">
                 </a>
             </li>
             <li>
-                <a href="http://pinterest.com" target="_blank">
+                <a href="{{ $siteInfo->pinterest }}" target="_blank">
                     <img src="{{ asset('storage/svg/pinterest.svg') }}" alt="pinterest btp">
                 </a>
             </li>
             <li>
-                <a href="http://linkedin.com" target="_blank">
+                <a href="{{ $siteInfo->linkedin }}" target="_blank">
                     <img src="{{ asset('storage/svg/linkedin.svg') }}" alt="LinkedIn btp">
                 </a>
             </li>

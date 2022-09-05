@@ -1,6 +1,13 @@
 .page-menu-list {
     .header,
     .footer {
+        .title {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        li {
+            margin: 15px 0;
+        }
         @include boxContainer();
     }
 }

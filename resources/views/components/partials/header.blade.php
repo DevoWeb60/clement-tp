@@ -1,7 +1,7 @@
 <header id="header">
     <h1>
         <a href="{{ route($home) }}">
-            <img src="{{ asset('storage/svg/logo.svg') }}" alt="Clément TP | Clément Construction">
+            <img src="{{ asset('storage/' . $siteInfo->logo) }}" alt="Clément TP | Clément Construction">
         </a>
     </h1>
     <nav>

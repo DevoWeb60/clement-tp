@@ -1,0 +1,43 @@
+#index-page-menus {
+    .container {
+        align-items: stretch;
+        gap: 50px;
+        .page-menu-list {
+            width: 30%;
+        }
+        .main {
+            width: 70%;
+
+            form {
+                div {
+                    width: 100%;
+                }
+                .input-group {
+                    margin-bottom: 20px;
+                }
+                input[type="checkbox"] {
+                    margin: 10px;
+                }
+            }
+        }
+        ul.menu-list {
+            @include boxContainer();
+
+            li {
+                padding: 0 10px;
+                border-radius: 5px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 0.3fr;
+                transition: $transition;
+
+                &:hover {
+                    background: lighten($primary, 30);
+                }
+
+                .btn {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

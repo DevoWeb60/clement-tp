@@ -29,7 +29,7 @@ class SubHeader extends Component
                 "link" => "coupons.index"
             ],
             [
-                "name" => "Newsletter",
+                "name" => "Newsletters",
                 "link" => "newsletters.index"
             ],
             [

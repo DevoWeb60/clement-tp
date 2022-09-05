@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Models\PageMenu;
+use App\Models\SiteInfo;
 use Illuminate\View\Component;
 
 class Header extends Component
@@ -51,6 +52,7 @@ class Header extends Component
             $home = "dashboard";
         }
 
-        return view('components.partials.header', compact('menus', 'home'));
+        $siteInfo = SiteInfo::first();
+        return view('components.partials.header', compact('menus', 'home', 'siteInfo'));
     }
 }

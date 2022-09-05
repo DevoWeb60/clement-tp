@@ -2,18 +2,20 @@
 
 namespace App\View\Components;
 
+use App\Models\PageMenu;
 use Illuminate\View\Component;
 
 class PageMenuForm extends Component
 {
+    public $id;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($id)
     {
-        //
+        $this->id = $id;
     }
 
     /**
@@ -23,6 +25,10 @@ class PageMenuForm extends Component
      */
     public function render()
     {
-        return view('components.form.page-menu-form');
+        if ($this->id != "false") {
+            $menu = PageMenu::find($this->id);
+        }
+
+        return view('components.form.page-menu-form', compact('menu'));
     }
 }

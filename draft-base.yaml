@@ -27,10 +27,15 @@ models:
     title: string:250
     phone: string:250
     address: string:250
+    google_link: string:250
     iframe_map: text nullable
     email: string:250
     logo: string:250
     favicon: string:250
+    facebook: string:250
+    instagram: string:250
+    pinterest: string:250
+    linkedin: string:250
 
   JobOffer:
     name: string:250

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ContactStoreRequest;
-use App\Http\Requests\ContactUpdateRequest;
 use App\Models\Contact;
 use App\Models\Delivery;
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactStoreRequest;
+use App\Http\Requests\ContactUpdateRequest;
 
 class ContactController extends Controller
 {
@@ -19,6 +19,7 @@ class ContactController extends Controller
     public function show(Request $request, Contact $message)
     {
         $message->update(['viewed' => 1]);
+
 
         return view('contact.show', compact('message'));
     }

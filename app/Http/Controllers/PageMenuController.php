@@ -15,18 +15,21 @@ class PageMenuController extends Controller
      */
     public function index(Request $request)
     {
+        $id = false;
         $pageMenus = PageMenu::all();
 
-        return view('page-menu.index', compact('pageMenus'));
+        return view('page-menu.index', compact('pageMenus', 'id'));
     }
 
     /**
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, PageMenu $pageMenu)
+    public function edit(Request $request, PageMenu $menu)
     {
-        return view('page-menu.edit', compact('pageMenu'));
+        $id = $menu->id;
+        $pageMenus = PageMenu::all();
+        return view('page-menu.index', compact('pageMenus', 'id'));
     }
 
     /**
@@ -35,9 +38,13 @@ class PageMenuController extends Controller
      */
     public function store(PageMenuStoreRequest $request)
     {
+        $header = $request->header;
+        $footer = $request->footer;
         $pageMenu = PageMenu::create($request->validated());
+        $pageMenu->update(['header' => $header ? true : false]);
+        $pageMenu->update(['footer' => $footer ? true : false]);
 
-        return redirect()->route('page-menu.index');
+        return redirect()->route('menus.index');
     }
 
     /**
@@ -45,13 +52,15 @@ class PageMenuController extends Controller
      * @param \App\Models\PageMenu $pageMenu
      * @return \Illuminate\Http\Response
      */
-    public function update(PageMenuUpdateRequest $request, PageMenu $pageMenu)
+    public function update(PageMenuUpdateRequest $request, PageMenu $menu)
     {
-        $pageMenu->update($request->validated());
+        $header = $request->header;
+        $footer = $request->footer;
+        $menu->update($request->validated());
+        $menu->update(['header' => $header ? true : false]);
+        $menu->update(['footer' => $footer ? true : false]);
 
-        return view('page-menu.update', compact('pageMenu'));
-
-        return redirect()->route('page-menu.index');
+        return redirect()->route('menus.index');
     }
 
     /**

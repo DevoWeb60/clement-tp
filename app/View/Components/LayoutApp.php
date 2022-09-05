@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\SiteInfo;
 use Illuminate\View\Component;
 
 class LayoutApp extends Component
@@ -24,6 +25,7 @@ class LayoutApp extends Component
      */
     public function render()
     {
-        return view('layouts.layout-app');
+        $siteInfo = SiteInfo::first();
+        return view('layouts.layout-app', compact('siteInfo'));
     }
 }

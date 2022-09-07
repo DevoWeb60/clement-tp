@@ -15,3 +15,14 @@ toggleMenu(navMenuButton, navMenu, navToggleClassName, navMenuClose);
 
 // ACCORDION SERVICES
 loopOn(".accordion", (accordion) => toggleAccordion(accordion, "show"));
+
+// JOB OFFER FORM
+const inputCity = document.querySelector("#input-city");
+const googleMapCityButton = document.querySelector(".city-container .btn");
+
+if (inputCity && googleMapCityButton) {
+    inputCity.addEventListener("keyup", (e) => {
+        googleMapCityButton.href =
+            "https://www.google.com/maps/search/" + e.target.value;
+    });
+}

@@ -19,7 +19,7 @@ class CreateCandidatesTable extends Migration
             $table->id();
             $table->string('email', 250);
             $table->text('message')->nullable();
-            $table->string('file', 250);
+            $table->string('file', 250)->nullable();
             $table->string('phone', 250)->nullable();
             $table->string('firstname', 250);
             $table->string('lastname', 250);

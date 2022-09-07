@@ -1,4 +1,4 @@
-<x-layoutApp title="Poste 1">
+<x-layoutApp :title="$offer->name">
     <div class="container">
         <div class="title">
             <h2>
@@ -36,9 +36,9 @@
             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="container">
-        <form action="POST" action="#" class="form-offer">
-            @csrf
-
+        <x-form method="POST" action="{{ route('candidature.store') }}" class="form-offer"
+            enctype="multipart/form-data">
+            <input type="hidden" name="job_offer_id" value="{{ $offer->id }}">
             <div class="col-2">
                 <x-inputGroup label="Nom" name="lastname" type="text" required="true" />
                 <x-inputGroup label="Prénom" name="firstname" type="text" required="true" />
@@ -46,7 +46,8 @@
             <x-inputGroup label="Adresse mail" name="email" type="email" required="true" />
             <x-inputGroup label="Téléphone" name="phone" type="tel" required="true" />
             <x-inputGroup label="Motivation" name="motivation" type="textarea" required="true" />
-        </form>
-        <button type="submit" class="btn">Soumettre</button>
+            <x-inputFileGroup label="CV" name="file" />
+            <button type="submit" class="btn">Soumettre</button>
+        </x-form>
     </div>
 </x-layoutApp>

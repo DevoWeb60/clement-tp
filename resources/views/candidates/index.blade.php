@@ -9,7 +9,9 @@
                 @foreach ($candidates as $candidate)
                     <li class="card">
                         <h2>{{ $candidate->firstname }} {{ $candidate->lastname }}</h2>
-                        <span class="badge">{{ $candidate->status->name }}</span>
+                        @if ($candidate->status)
+                            <span class="badge">{{ $candidate->status->name }}</span>
+                        @endif
                         <ul>
                             @if ($candidate->phone)
                                 <li>

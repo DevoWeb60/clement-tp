@@ -25,11 +25,11 @@ class CandidateStoreRequest extends FormRequest
     {
         return [
             'email' => ['required', 'email', 'max:250'],
-            'message' => ['string'],
-            'file' => ['required', 'string', 'max:250'],
-            'phone' => ['string', 'max:250'],
+            'message' => ['nullable', 'string'],
+            'phone' => ['nullable', 'string', 'max:10'],
             'firstname' => ['required', 'string', 'max:250'],
             'lastname' => ['required', 'string', 'max:250'],
+            'job_offer_id' => ['required', 'exists:job_offers,id'],
         ];
     }
 }

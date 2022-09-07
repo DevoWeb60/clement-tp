@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JobOffer;
+use App\Models\Candidate;
+use Illuminate\Http\Request;
+use App\Models\CandidateState;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\CandidateStoreRequest;
 use App\Http\Requests\CandidateUpdateRequest;
-use App\Models\Candidate;
-use App\Models\CandidateState;
-use App\Models\JobOffer;
-use Illuminate\Http\Request;
 
 class CandidateController extends Controller
 {
@@ -24,11 +25,6 @@ class CandidateController extends Controller
         return view('candidates.index', compact('candidates', 'jobOffer'));
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Candidate $candidate
-     * @return \Illuminate\Http\Response
-     */
     public function show(Request $request, Candidate $candidature)
     {
         $states = CandidateState::all();
@@ -37,23 +33,18 @@ class CandidateController extends Controller
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-        return view('candidates.create');
-    }
-
-    /**
      * @param \App\Http\Requests\CandidateStoreRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(CandidateStoreRequest $request)
     {
+        $path = $this->uploadFile($request, 'file');
         $candidate = Candidate::create($request->validated());
+        $candidate->update([
+            'file' => $path,
+        ]);
 
-        return redirect()->route('candidates.index');
+        return redirect()->route('jobOffer');
     }
 
     /**
@@ -80,7 +71,24 @@ class CandidateController extends Controller
     public function destroy(Request $request, Candidate $candidature)
     {
         $offerId = $candidature->job_offer_id;
+        $this->deleteFile($candidature->file);
         $candidature->delete();
         return redirect()->route('candidature.index', ['id' => $offerId]);
+    }
+
+    public function deleteFile($path)
+    {
+        if ($path) {
+            Storage::disk('public')->delete($path);
+        }
+    }
+
+    public function uploadFile($request, $inputName)
+    {
+        $path = null;
+        if ($request->hasFile($inputName)) {
+            $path = Storage::disk('public')->put($request->file($inputName)->extension(), $request->file($inputName));
+        };
+        return $path;
     }
 }

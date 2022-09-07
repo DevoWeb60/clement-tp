@@ -38,6 +38,7 @@ Route::post("/contact/", [ContactController::class, "store"])->name('contact.sto
 Route::get("/recrutement", [PageController::class, "jobOffer"])->name('jobOffer');
 Route::get("/recrutement/{id}", [PageController::class, "offer"])->name('offer');
 Route::post('/newsletter', [NewsletterController::class, "store"])->name('newsletter');
+Route::post('/postuler', [CandidateController::class, "store"])->name('candidature.store');
 // ADMIN SIDE ROUTES
 Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
     Route::get('/', [PageController::class, 'dashboard'])->name('dashboard');
@@ -49,7 +50,7 @@ Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
     Route::resource('offres', JobOfferController::class)->except('show');
     Route::resource('services', ServicesController::class)->except('show', 'create');
     Route::resource('objets', ContactObjectController::class)->except('edit', 'show');
-    Route::resource('candidature', CandidateController::class)->except('edit');
+    Route::resource('candidature', CandidateController::class)->only('index', 'show', 'update', 'destroy');
     Route::resource('message', ContactController::class)->only('show', 'destroy');
     Route::resource('candidature-status', CandidateStateController::class)->except('edit', 'show');
     Route::resource('newsletters', NewsletterController::class)->only('index', 'destroy');

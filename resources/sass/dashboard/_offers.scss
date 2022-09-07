@@ -1,2 +1,55 @@
-// #index-offer {
-// }
+#create-job-offers {
+    .container {
+        margin: 0 auto;
+        width: 800px;
+    }
+    form {
+        margin-bottom: 50px;
+        .space-between.main {
+            margin-top: 50px;
+            align-items: stretch;
+            gap: 20px;
+
+            .input-group.description {
+                margin-bottom: 0;
+            }
+            #textarea-description {
+                height: 100%;
+            }
+            .input-group,
+            .infos {
+                width: 50%;
+
+                .input-group {
+                    width: 100%;
+                }
+
+                .city-container {
+                    margin-bottom: 40px;
+
+                    .btn {
+                        margin: 0;
+                    }
+                }
+                .city {
+                    width: 60%;
+                    margin-bottom: 0;
+                }
+
+                .iframe {
+                    .input-group {
+                        height: 100px;
+                    }
+
+                    iframe {
+                        height: 150px;
+                    }
+                }
+            }
+        }
+
+        .checkbox-container {
+            margin: 30px 0;
+        }
+    }
+}

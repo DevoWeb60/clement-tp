@@ -16,7 +16,9 @@ class JobOfferController extends Controller
     public function index(Request $request)
     {
         $jobOffers = JobOffer::all();
-
+        foreach ($jobOffers as $jobOffer) {
+            $jobOffer->skills = explode(',', $jobOffer->skills);
+        }
         return view('job-offers.index', compact('jobOffers'));
     }
 
@@ -26,7 +28,9 @@ class JobOfferController extends Controller
      */
     public function create(Request $request)
     {
-        return view('job-offers.create');
+        $jobOffer = false;
+
+        return view('job-offers.create', compact('jobOffer'));
     }
 
     /**
@@ -35,8 +39,9 @@ class JobOfferController extends Controller
      */
     public function edit(Request $request, JobOffer $offre)
     {
+        $jobOffer = $offre;
 
-        return view('job-offers.edit', compact('offre'));
+        return view('job-offers.create', compact('jobOffer'));
     }
 
     /**
@@ -45,9 +50,13 @@ class JobOfferController extends Controller
      */
     public function store(JobOfferStoreRequest $request)
     {
-        $jobOffer = JobOffer::create($request->validated());
 
-        return redirect()->route('job-offers.index');
+        $jobOffer = JobOffer::create($request->validated());
+        $jobOffer->update([
+            'active' => $request->active ? true : false,
+        ]);
+
+        return redirect()->route('offres.index');
     }
 
     /**
@@ -55,13 +64,14 @@ class JobOfferController extends Controller
      * @param \App\Models\JobOffer $jobOffer
      * @return \Illuminate\Http\Response
      */
-    public function update(JobOfferUpdateRequest $request, JobOffer $jobOffer)
+    public function update(JobOfferUpdateRequest $request, JobOffer $offre)
     {
-        $jobOffer->update($request->validated());
+        $offre->update($request->validated());
+        $offre->update([
+            'active' => $request->active ? true : false,
+        ]);
 
-        return view('job-offers.update', compact('jobOffer'));
-
-        return redirect()->route('job-offers.index');
+        return redirect()->route('offres.index');
     }
 
     /**
@@ -69,8 +79,10 @@ class JobOfferController extends Controller
      * @param \App\Models\JobOffer $jobOffer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, JobOffer $jobOffer)
+    public function destroy(Request $request, JobOffer $offre)
     {
-        $jobOffer->delete();
+        $offre->delete();
+
+        return redirect()->route('offres.index');
     }
 }

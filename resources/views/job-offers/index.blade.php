@@ -2,7 +2,11 @@
     <div id="index-offer">
         <div class="container">
             <div class="title">
-                <h2>Offres d'emplois</h2>
+                <h2 class="space-between row">Offres d'emplois
+                    <small>
+                        <a href="{{ route('offres.create') }}" class="btn">Ajouter</a>
+                    </small>
+                </h2>
             </div>
             <ul class="galery">
                 @foreach ($jobOffers as $offre)
@@ -15,7 +19,12 @@
                         <h2>{{ $offre->name }}</h2>
                         <h4 class="muted">{{ $offre->city }}</h4>
                         <p>Salaire : {{ $offre->salary }}</p>
-                        <p>Compétence : {{ $offre->skills }}</p>
+                        <p class="m0">Compétence :</p>
+                        <ul class="list">
+                            @foreach ($offre->skills as $skill)
+                                <li>{{ $skill }}</li>
+                            @endforeach
+                        </ul>
 
                         <div class="space-between">
                             <a href="{{ route('candidature.index', ['id' => $offre->id]) }}"

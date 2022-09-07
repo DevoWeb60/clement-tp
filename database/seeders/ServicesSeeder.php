@@ -20,7 +20,7 @@ class ServicesSeeder extends Seeder
                 'name' => 'Rénovation',
                 'customers' => "",
                 'professional' => "",
-                'image' => 'webp/image.webp',
+                'image' => 'webp/customers.webp',
             ],
         ]);
     }

@@ -6,15 +6,13 @@
         consequatur doloremque. Aliquam.
     </p>
     <ul class="constructions">
-        <li>
-            <x-accordion image="survey.webp" title="Rénovations" id="1" route="contact" button="Demander un devis">
-                lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </x-accordion>
-        </li>
-        <li>
-            <x-accordion image="survey.webp" title="Extentions" id="2" route="contact" button="Demander un devis">
-                lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </x-accordion>
-        </li>
+        @foreach ($constructions as $construction)
+            <li>
+                <x-accordion :image="$construction->image" :title="$construction->name" id="construction-{{ $construction->id }}" route="contact"
+                    button="Demander un devis">
+                    {{ $construction->description }}
+                </x-accordion>
+            </li>
+        @endforeach
     </ul>
 </div>

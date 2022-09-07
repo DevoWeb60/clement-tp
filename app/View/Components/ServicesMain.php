@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Service;
 use Illuminate\View\Component;
 
 class ServicesMain extends Component
@@ -23,6 +24,7 @@ class ServicesMain extends Component
      */
     public function render()
     {
-        return view('components.services.services-main');
+        $services = Service::where('type', 'service')->get();
+        return view('components.services.services-main', compact('services'));
     }
 }

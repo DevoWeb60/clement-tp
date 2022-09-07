@@ -2,10 +2,9 @@
 
 namespace App\View\Components;
 
-use App\Models\Service;
 use Illuminate\View\Component;
 
-class ServicesConstruction extends Component
+class Alert extends Component
 {
     /**
      * Create a new component instance.
@@ -24,8 +23,6 @@ class ServicesConstruction extends Component
      */
     public function render()
     {
-        $constructions = Service::where('type', 'construction')->get();
-
-        return view('components.services.services-construction', compact('constructions'));
+        return view('components.alert');
     }
 }

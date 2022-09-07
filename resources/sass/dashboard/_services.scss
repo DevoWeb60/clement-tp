@@ -1,0 +1,14 @@
+#index-services {
+    .container {
+        @include flexSpaceBetween();
+        gap: 50px;
+
+        form .space-between .input-group {
+            width: 48%;
+
+            textarea {
+                height: 200px;
+            }
+        }
+    }
+}

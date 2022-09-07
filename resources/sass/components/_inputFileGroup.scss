@@ -1,0 +1,13 @@
+.input-file {
+    @include flexSpaceBetween();
+    gap: 10px;
+
+    div {
+        width: 48%;
+
+        img {
+            border-radius: 5px;
+            box-shadow: $boxShadow;
+        }
+    }
+}

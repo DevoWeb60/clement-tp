@@ -30,6 +30,8 @@ body {
 @import "components/candidateInformation";
 @import "components/deliveriesList";
 @import "components/pageMenuList";
+@import "components/servicesList";
+@import "components/inputFileGroup";
 
 // PAGE
 @import "pages/home";
@@ -47,6 +49,7 @@ body {
 @import "dashboard/deliveries";
 @import "dashboard/menus";
 @import "dashboard/newsletters";
+@import "dashboard/services";
 
 // PARTIALS
 @import "partials/singleMessage";

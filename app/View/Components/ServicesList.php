@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Models\Service;
 use Illuminate\View\Component;
 
-class ServicesConstruction extends Component
+class ServicesList extends Component
 {
     /**
      * Create a new component instance.
@@ -24,8 +24,8 @@ class ServicesConstruction extends Component
      */
     public function render()
     {
-        $constructions = Service::where('type', 'construction')->get();
+        $services = Service::orderBy('type', 'ASC')->get();
 
-        return view('components.services.services-construction', compact('constructions'));
+        return view('components.dashboard.services-list', compact('services'));
     }
 }

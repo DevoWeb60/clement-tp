@@ -2,19 +2,21 @@
 
 namespace App\View\Components;
 
-use App\Models\Service;
 use Illuminate\View\Component;
 
-class ServicesConstruction extends Component
+class InputFileGroup extends Component
 {
+    public $label;
+    public $name;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($label, $name)
     {
-        //
+        $this->label = $label;
+        $this->name = $name;
     }
 
     /**
@@ -24,8 +26,6 @@ class ServicesConstruction extends Component
      */
     public function render()
     {
-        $constructions = Service::where('type', 'construction')->get();
-
-        return view('components.services.services-construction', compact('constructions'));
+        return view('components.form.input-file-group');
     }
 }

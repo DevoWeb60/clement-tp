@@ -24,9 +24,10 @@ class ServiceFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'customers' => $this->faker->text,
+            'description' => $this->faker->text,
             'professionnal' => $this->faker->text,
-            'image' => $this->faker->regexify('[A-Za-z0-9]{250}'),
+            'image' => 'webp/customers.webp',
+            'type' => 'construction'
         ];
     }
 }

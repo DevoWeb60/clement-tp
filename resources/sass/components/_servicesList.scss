@@ -1,0 +1,28 @@
+.services-list {
+    @include boxContainer();
+    width: 50%;
+    height: 80vh;
+    padding: 10px;
+    ul {
+        height: 72vh;
+        overflow-y: scroll;
+    }
+    li {
+        background: $white;
+        border-radius: 5px;
+        margin: 10px;
+        margin-bottom: 20px;
+        box-shadow: $boxShadow;
+        overflow: hidden;
+        .service-header {
+            @include flexAlignCenter();
+            @include flexSpaceBetween();
+            margin-bottom: 20px;
+
+            h3,
+            p {
+                margin: 0;
+            }
+        }
+    }
+}

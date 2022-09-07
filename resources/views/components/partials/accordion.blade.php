@@ -7,11 +7,9 @@
     </div>
     <div class="content-accordion">
         @if ($image)
-            <img src="{{ asset('storage/webp/' . $image) }}" alt="{{ $title }}">
+            <img src="{{ asset('storage/' . $image) }}" alt="{{ $title }}">
         @endif
-        <p>
-            {{ $slot }}
-        </p>
+        <p class="text">{{ $slot }}</p>
         <a href="{{ route($route) }}" class="btn">{{ $button }}</a>
     </div>
 </div>

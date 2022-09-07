@@ -6,14 +6,12 @@
         consequatur doloremque. Aliquam.
     </p>
 </div>
-<ul class="activities">
-    <li>
-        <x-titleOnBackground title="Plan technique" image="{{ asset('storage/webp/plan.webp') }}" />
-    </li>
-    <li>
-        <x-titleOnBackground title="Visualisation 3D" image="{{ asset('storage/webp/visualisation.webp') }}" />
-    </li>
-    <li>
-        <x-titleOnBackground title="Étude de site" image="{{ asset('storage/webp/survey.webp') }}" />
-    </li>
-</ul>
+@if ($services)
+    <ul class="activities">
+        @foreach ($services as $service)
+            <li>
+                <x-titleOnBackground :title="$service->name" image="{{ asset('storage/' . $service->image) }}" />
+            </li>
+        @endforeach
+    </ul>
+@endif

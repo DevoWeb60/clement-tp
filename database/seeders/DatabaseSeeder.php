@@ -8,6 +8,7 @@ use App\Models\Candidate;
 use App\Models\Contact;
 use App\Models\JobOffer;
 use App\Models\Newsletter;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -33,5 +34,6 @@ class DatabaseSeeder extends Seeder
         Newsletter::factory(21)->create();
         Contact::factory(54)->create();
         Candidate::factory(18)->create();
+        Service::factory(9)->create();
     }
 }

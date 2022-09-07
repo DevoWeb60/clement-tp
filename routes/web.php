@@ -47,7 +47,7 @@ Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
     Route::resource('pages', PageContentController::class)->except('edit', 'show');
     Route::resource('general', SiteInfoController::class)->except('edit', 'show');
     Route::resource('offres', JobOfferController::class)->except('show');
-    Route::resource('services', ServicesController::class)->except('edit', 'show');
+    Route::resource('services', ServicesController::class)->except('show', 'create');
     Route::resource('objets', ContactObjectController::class)->except('edit', 'show');
     Route::resource('candidature', CandidateController::class)->except('edit');
     Route::resource('message', ContactController::class)->only('show', 'destroy');

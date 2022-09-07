@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ServiceStoreRequest;
-use App\Http\Requests\ServiceUpdateRequest;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use App\Http\Requests\ServiceStoreRequest;
+use App\Http\Requests\ServiceUpdateRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ServicesController extends Controller
 {
@@ -15,7 +16,8 @@ class ServicesController extends Controller
      */
     public function index(Request $request)
     {
-        $services = Service::all();
+        $service = false;
+
 
         return view('services.index', compact('service'));
     }
@@ -24,9 +26,9 @@ class ServicesController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function edit(Request $request, Service $service)
     {
-        return view('services.create');
+        return view('services.index', compact('service'));
     }
 
     /**
@@ -35,7 +37,11 @@ class ServicesController extends Controller
      */
     public function store(ServiceStoreRequest $request)
     {
+        $path = $this->uploadFile($request, 'image');
         $service = Service::create($request->validated());
+        $service->update([
+            'image' => $path,
+        ]);
 
         return redirect()->route('services.index');
     }
@@ -47,9 +53,17 @@ class ServicesController extends Controller
      */
     public function update(ServiceUpdateRequest $request, Service $service)
     {
-        $service->update($request->validated());
 
-        return view('services.update', compact('service'));
+        $oldPath = $service->image;
+
+        $newPath = $this->uploadFile($request, 'image');
+
+        $service->update($request->validated());
+        $service->update([
+            'image' => $newPath,
+        ]);
+
+        $this->deleteFile($oldPath);
 
         return redirect()->route('services.index');
     }
@@ -61,6 +75,25 @@ class ServicesController extends Controller
      */
     public function destroy(Request $request, Service $service)
     {
+        $this->deleteFile($service->image);
         $service->delete();
+
+        return redirect()->route('services.index');
+    }
+
+    public function deleteFile($path)
+    {
+        if ($path) {
+            Storage::disk('public')->delete($path);
+        }
+    }
+
+    public function uploadFile($request, $inputName)
+    {
+        $path = null;
+        if ($request->hasFile($inputName)) {
+            $path = Storage::disk('public')->put($request->file($inputName)->extension(), $request->file($inputName));
+        };
+        return $path;
     }
 }

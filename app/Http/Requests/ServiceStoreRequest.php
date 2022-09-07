@@ -24,10 +24,11 @@ class ServiceStoreRequest extends FormRequest
     public function rules()
     {
         return [
+            'type' => ['required', 'string'],
             'name' => ['required', 'string', 'max:250'],
-            'customers' => ['string'],
-            'professionnal' => ['string'],
-            'image' => ['string', 'max:250'],
+            'description' => ['nullable', 'string'],
+            'professionnal' => ['nullable', 'string'],
+            'image' => ['nullable', 'image'],
         ];
     }
 }

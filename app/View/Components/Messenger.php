@@ -24,7 +24,7 @@ class Messenger extends Component
      */
     public function render()
     {
-        $messages = Contact::orderBy('id', 'desc')->get();
+        $messages = Contact::orderBy('id', 'desc')->paginate(20);
         $notView = 0;
         foreach ($messages as $message) {
             if ($message->viewed == 0) {

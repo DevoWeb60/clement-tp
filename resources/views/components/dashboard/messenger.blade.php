@@ -3,7 +3,7 @@
         <h2>Messages reçu</h2>
         <h4><strong>{{ $notView }}</strong> messages non lu</h4>
     </div>
-    <ul>
+    <ul class="messages">
         @foreach ($messages as $message)
             <li
                 class="message
@@ -31,4 +31,5 @@
             </li>
         @endforeach
     </ul>
+    {{ $messages->links('components.partials.paginate', ['route' => route('dashboard')]) }}
 </div>

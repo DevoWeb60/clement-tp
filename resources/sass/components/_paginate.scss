@@ -1,0 +1,44 @@
+#paginate {
+    margin-top: 30px;
+    border-radius: 5px 5px 30px 5px;
+    background: $white;
+    box-shadow: $boxShadow;
+
+    a.prev,
+    a.next {
+        & .svg {
+            transition: $transition;
+
+            &:hover {
+                opacity: 0.4;
+            }
+        }
+    }
+
+    .pagination {
+        margin: 0;
+        margin-bottom: -10px;
+        @include flexAlignCenter();
+        justify-content: space-between;
+
+        li {
+            padding: 10px 10px;
+            font-size: 20px;
+            flex-grow: 1;
+            text-align: center;
+        }
+    }
+
+    .svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .prev .svg {
+        transform: rotate(90deg);
+    }
+
+    .next .svg {
+        transform: rotate(-90deg);
+    }
+}

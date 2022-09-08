@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Alert extends Component
+class Paginate extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class Alert extends Component
      */
     public function render()
     {
-        return view('components.partials.alert');
+        return view('components.partials.paginate');
     }
 }

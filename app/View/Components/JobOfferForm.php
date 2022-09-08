@@ -33,7 +33,7 @@ class JobOfferForm extends Component
             $iframe = $this->getURLFromIframe($this->jobOffer->iframe_map);
         }
 
-        return view('components.job-offer-form', compact('action', 'method', 'iframe'));
+        return view('components.form.job-offer-form', compact('action', 'method', 'iframe'));
     }
 
     public function getURLFromIframe($iframe)

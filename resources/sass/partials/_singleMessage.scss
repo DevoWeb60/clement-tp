@@ -1,7 +1,7 @@
 #single-message {
-    .controls a {
-        width: 30%;
-        text-align: center;
+    .controls {
+        overflow: hidden;
+        border-radius: 5px;
     }
 }
 .single-message {

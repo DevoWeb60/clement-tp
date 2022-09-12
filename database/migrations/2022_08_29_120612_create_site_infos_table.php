@@ -24,10 +24,10 @@ class CreateSiteInfosTable extends Migration
             $table->string('email', 250);
             $table->string('logo', 250);
             $table->string('favicon', 250);
-            $table->string('facebook', 250);
-            $table->string('instagram', 250);
-            $table->string('pinterest', 250);
-            $table->string('linkedin', 250);
+            $table->string('facebook', 250)->nullable();
+            $table->string('instagram', 250)->nullable();
+            $table->string('pinterest', 250)->nullable();
+            $table->string('linkedin', 250)->nullable();
             $table->timestamps();
         });
     }

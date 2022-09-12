@@ -32,8 +32,7 @@
                 <p>{{ $offer->city }}</p>
             </div>
         </div>
-        <iframe src="{{ $googleLink }}" width="600" height="450" style="border:0;" allowfullscreen=""
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <x-iframe :iframe="$offer->iframe_map ?? ''" />
     </div>
     <div class="container">
         <x-form method="POST" action="{{ route('candidature.store') }}" class="form-offer"

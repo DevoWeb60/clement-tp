@@ -51,6 +51,9 @@ body {
 @import "dashboard/menus";
 @import "dashboard/newsletters";
 @import "dashboard/services";
+@import "dashboard/generalPage";
+@import "dashboard/user";
 
 // PARTIALS
 @import "partials/singleMessage";
+@import "partials/modal";

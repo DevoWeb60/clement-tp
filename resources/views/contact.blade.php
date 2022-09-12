@@ -24,6 +24,5 @@
             </li>
         </ul>
     </div>
-    <iframe src="{{ $googleIframe }}" width="600" height="450" style="border:0;" allowfullscreen=""
-        loading="lazy"></iframe>
+    <x-iframe :iframe="$siteInfo->iframe_map ?? ''" />
 </x-layoutApp>

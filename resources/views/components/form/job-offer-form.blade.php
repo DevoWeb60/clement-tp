@@ -26,10 +26,7 @@
                 <x-inputGroup label="Carte google" name="iframe_map" type="textarea">
                     {{ $jobOffer->iframe_map ?? '' }}
                 </x-inputGroup>
-                @if ($iframe)
-                    <iframe src="{{ $iframe }}" width="600" height="450" style="border:0;" allowfullscreen=""
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                @endif
+                <x-iframe :iframe="$jobOffer->iframe_map ?? ''" />
             </div>
         </div>
     </div>

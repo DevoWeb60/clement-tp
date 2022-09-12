@@ -8,10 +8,12 @@
         position: absolute;
         transform: translate(14px, 10px);
         transition: $transition;
+        cursor: pointer;
     }
 
     input,
     textarea {
+        cursor: text;
         border: none;
         background: $grey;
         border-left: 3px solid $primary;
@@ -31,6 +33,7 @@
             + label {
                 color: $darkGrey;
                 transform: translate(5px, -120%);
+                cursor: default;
             }
         }
     }

@@ -15,29 +15,9 @@ class SiteInfoController extends Controller
      */
     public function index(Request $request)
     {
-        $siteInfos = SiteInfo::all();
+        $siteInfo = SiteInfo::first();
 
         return view('site-info.index', compact('siteInfo'));
-    }
-
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-        return view('site-infos.create');
-    }
-
-    /**
-     * @param \App\Http\Requests\SiteInfoStoreRequest $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(SiteInfoStoreRequest $request)
-    {
-        $siteInfo = SiteInfo::create($request->validated());
-
-        return redirect()->route('site-infos.index');
     }
 
     /**
@@ -45,22 +25,20 @@ class SiteInfoController extends Controller
      * @param \App\Models\SiteInfo $siteInfo
      * @return \Illuminate\Http\Response
      */
-    public function update(SiteInfoUpdateRequest $request, SiteInfo $siteInfo)
+    public function update(SiteInfoUpdateRequest $request, SiteInfo $general)
     {
-        $siteInfo->update($request->validated());
+        $oldPathLogo = $general->logo;
+        $oldPathFavicon = $general->favicon;
 
-        return view('site-infos.update', compact('siteInfo'));
+        $logoPath = Controller::uploadFile($request, 'logo', $oldPathLogo);
+        $faviconPath = Controller::uploadFile($request, 'favicon', $oldPathFavicon);
 
-        return redirect()->route('site-infos.index');
-    }
+        $general->update($request->validated());
+        $general->update([
+            'logo' => $logoPath ? $logoPath : $oldPathLogo,
+            'favicon' => $faviconPath ? $faviconPath : $oldPathFavicon,
+        ]);
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\SiteInfo $siteInfo
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Request $request, SiteInfo $siteInfo)
-    {
-        $siteInfo->delete();
+        return redirect()->route('general.index');
     }
 }

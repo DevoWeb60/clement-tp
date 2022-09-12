@@ -38,7 +38,7 @@ class CandidateController extends Controller
      */
     public function store(CandidateStoreRequest $request)
     {
-        $path = $this->uploadFile($request, 'file');
+        $path = Controller::uploadFile($request, 'file');
         $candidate = Candidate::create($request->validated());
         $candidate->update([
             'file' => $path,
@@ -71,24 +71,8 @@ class CandidateController extends Controller
     public function destroy(Request $request, Candidate $candidature)
     {
         $offerId = $candidature->job_offer_id;
-        $this->deleteFile($candidature->file);
+        Controller::deleteFile($candidature->file);
         $candidature->delete();
         return redirect()->route('candidature.index', ['id' => $offerId]);
-    }
-
-    public function deleteFile($path)
-    {
-        if ($path) {
-            Storage::disk('public')->delete($path);
-        }
-    }
-
-    public function uploadFile($request, $inputName)
-    {
-        $path = null;
-        if ($request->hasFile($inputName)) {
-            $path = Storage::disk('public')->put($request->file($inputName)->extension(), $request->file($inputName));
-        };
-        return $path;
     }
 }

@@ -1,0 +1,52 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    @include flexCenter();
+}
+
+.modal {
+    position: relative;
+    width: 90%;
+    background: $grey;
+    padding: 20px;
+    border-radius: $borderRadius;
+    box-shadow: $boxShadow;
+
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 30px;
+        font-size: 50px;
+        color: $black;
+        cursor: pointer;
+    }
+}
+
+.modal-content {
+    .title {
+        font-size: $fs-title + 0.5;
+        margin-bottom: 20px;
+    }
+    .content {
+        @include flexSpaceBetween();
+        flex-wrap: wrap;
+
+        img {
+            width: 60%;
+        }
+
+        .modal-text {
+            width: 38%;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: $boxShadow;
+            background: $white;
+        }
+    }
+}

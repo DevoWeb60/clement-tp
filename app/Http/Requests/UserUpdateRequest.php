@@ -26,10 +26,6 @@ class UserUpdateRequest extends FormRequest
         return [
             'firstname' => ['required', 'string', 'max:250'],
             'lastname' => ['required', 'string', 'max:250'],
-            'password' => ['required', 'password', 'max:250'],
-            'email' => ['required', 'email', 'max:250'],
-            'lastname' => ['required', 'string', 'max:250'],
-            'password' => ['required', 'password', 'max:250'],
             'email' => ['required', 'email', 'max:250'],
         ];
     }

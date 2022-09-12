@@ -32,7 +32,7 @@ class Header extends Component
         if ($this->role === "admin") {
             $menus = [
                 [
-                    'name' => 'Général',
+                    'name' => 'Paramètres',
                     'link' => 'general.index',
                 ],
                 [

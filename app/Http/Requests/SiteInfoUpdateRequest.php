@@ -24,13 +24,16 @@ class SiteInfoUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'description' => ['required', 'string'],
+            'description' => ['required', 'string', 'max:160'],
             'title' => ['required', 'string', 'max:250'],
             'phone' => ['required', 'string', 'max:250'],
             'address' => ['required', 'string', 'max:250'],
             'email' => ['required', 'email', 'max:250'],
-            'logo' => ['required', 'string', 'max:250'],
-            'favicon' => ['required', 'string', 'max:250'],
+            'facebook' => ['nullable', 'string'],
+            'pinterest' => ['nullable', 'string'],
+            'linkedin' => ['nullable', 'string'],
+            'instagram' => ['nullable', 'string'],
+            'iframe_map' => ['required', 'string']
         ];
     }
 }

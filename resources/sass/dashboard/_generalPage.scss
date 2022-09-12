@@ -1,0 +1,62 @@
+#index-general {
+    .container {
+        width: 900px;
+        margin: 0 auto;
+    }
+    .form-part {
+        margin-bottom: 40px;
+        h3 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: $fs-title + 0.2;
+        }
+        @include boxContainer();
+    }
+    .space-between {
+        .input-group,
+        iframe,
+        .form-part {
+            width: 47%;
+        }
+
+        iframe {
+            height: 200px;
+        }
+
+        &.iframe {
+            textarea {
+                height: 200px;
+            }
+        }
+
+        &.settings-part {
+            .input-group {
+                width: 100%;
+            }
+        }
+
+        &.submit {
+            margin-bottom: 50px;
+        }
+    }
+    .address-container {
+        @include flexSpaceBetween();
+        align-items: center;
+        margin-bottom: 40px;
+        .input-group {
+            width: 80%;
+            margin-bottom: 0;
+        }
+    }
+    .input-file {
+        .input-group {
+            margin-bottom: 10px;
+        }
+        display: block;
+        .preview {
+            margin-bottom: 40px;
+            border-radius: 5px;
+            background: $darkGrey;
+        }
+    }
+}

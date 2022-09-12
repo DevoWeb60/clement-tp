@@ -40,6 +40,7 @@ footer {
         @include flexCenter("column");
         width: 100%;
         margin: 0;
+        max-width: 500px;
 
         ul,
         li,

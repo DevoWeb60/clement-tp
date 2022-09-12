@@ -19,26 +19,35 @@
     <div class="socials">
         <h3>Suivez nous</h3>
         <ul>
-            <li>
-                <a href="{{ $siteInfo->facebook }}" target="_blank">
-                    <img src="{{ asset('storage/svg/facebook.svg') }}" alt="Facebook btp">
-                </a>
-            </li>
-            <li>
-                <a href="{{ $siteInfo->instagram }}" target="_blank">
-                    <img src="{{ asset('storage/svg/instagram.svg') }}" alt="instagram btp">
-                </a>
-            </li>
-            <li>
-                <a href="{{ $siteInfo->pinterest }}" target="_blank">
-                    <img src="{{ asset('storage/svg/pinterest.svg') }}" alt="pinterest btp">
-                </a>
-            </li>
-            <li>
-                <a href="{{ $siteInfo->linkedin }}" target="_blank">
-                    <img src="{{ asset('storage/svg/linkedin.svg') }}" alt="LinkedIn btp">
-                </a>
-            </li>
+
+            @if ($siteInfo->facebook)
+                <li>
+                    <a href="{{ $siteInfo->facebook }}" target="_blank">
+                        <img src="{{ asset('storage/svg/facebook.svg') }}" alt="Facebook btp">
+                    </a>
+                </li>
+            @endif
+            @if ($siteInfo->instagram)
+                <li>
+                    <a href="{{ $siteInfo->instagram }}" target="_blank">
+                        <img src="{{ asset('storage/svg/instagram.svg') }}" alt="instagram btp">
+                    </a>
+                </li>
+            @endif
+            @if ($siteInfo->pinterest)
+                <li>
+                    <a href="{{ $siteInfo->pinterest }}" target="_blank">
+                        <img src="{{ asset('storage/svg/pinterest.svg') }}" alt="pinterest btp">
+                    </a>
+                </li>
+            @endif
+            @if ($siteInfo->linkedin)
+                <li>
+                    <a href="{{ $siteInfo->linkedin }}" target="_blank">
+                        <img src="{{ asset('storage/svg/linkedin.svg') }}" alt="LinkedIn btp">
+                    </a>
+                </li>
+            @endif
         </ul>
     </div>
 </footer>

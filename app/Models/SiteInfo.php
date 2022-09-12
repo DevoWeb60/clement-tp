@@ -23,6 +23,10 @@ class SiteInfo extends Model
         'email',
         'logo',
         'favicon',
+        'facebook',
+        'pinterest',
+        'linkedin',
+        'instagram',
     ];
 
     /**

@@ -1,0 +1,33 @@
+#projects {
+    .project {
+        position: relative;
+        width: 300px;
+        border-radius: 5px;
+        box-shadow: $boxShadow;
+        overflow: hidden;
+        cursor: pointer;
+
+        &::after {
+            content: attr(data-title);
+            position: absolute;
+            @include flexCenter();
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            font-size: $fs-title;
+            transform: translateX(-100%);
+            background: rgba($primary, 0.8);
+            transition: $transition;
+        }
+
+        &:hover::after {
+            transform: translateX(0);
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+}

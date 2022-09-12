@@ -37,7 +37,7 @@ class ServicesController extends Controller
      */
     public function store(ServiceStoreRequest $request)
     {
-        $path = $this->uploadFile($request, 'image');
+        $path = Controller::uploadFile($request, 'image');
         $service = Service::create($request->validated());
         $service->update([
             'image' => $path,
@@ -56,14 +56,12 @@ class ServicesController extends Controller
 
         $oldPath = $service->image;
 
-        $newPath = $this->uploadFile($request, 'image');
+        $newPath = Controller::uploadFile($request, 'image', $oldPath);
 
         $service->update($request->validated());
         $service->update([
             'image' => $newPath,
         ]);
-
-        $this->deleteFile($oldPath);
 
         return redirect()->route('services.index');
     }
@@ -75,25 +73,9 @@ class ServicesController extends Controller
      */
     public function destroy(Request $request, Service $service)
     {
-        $this->deleteFile($service->image);
+        Controller::deleteFile($service->image);
         $service->delete();
 
         return redirect()->route('services.index');
-    }
-
-    public function deleteFile($path)
-    {
-        if ($path) {
-            Storage::disk('public')->delete($path);
-        }
-    }
-
-    public function uploadFile($request, $inputName)
-    {
-        $path = null;
-        if ($request->hasFile($inputName)) {
-            $path = Storage::disk('public')->put($request->file($inputName)->extension(), $request->file($inputName));
-        };
-        return $path;
     }
 }

@@ -32,3 +32,15 @@ export const loopOn = (selector, callback) => {
         });
     }
 };
+
+export const dynamicGoogleMapLink = (name) => {
+    const input = document.querySelector(`#input-${name}`);
+    const googleMapButton = document.querySelector(`.${name}-container .btn`);
+
+    if (input && googleMapButton) {
+        input.addEventListener("keyup", (e) => {
+            googleMapButton.href =
+                "https://www.google.com/maps/search/" + e.target.value;
+        });
+    }
+};

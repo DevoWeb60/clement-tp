@@ -30,9 +30,8 @@ class PageController extends Controller
     public function contact()
     {
         $siteInfo = SiteInfo::first();
-        $googleIframe = $this->getURLFromIframe($siteInfo->iframe_map);
 
-        return view('contact', compact('siteInfo', 'googleIframe'));
+        return view('contact', compact('siteInfo'));
     }
 
     public function jobOffer()
@@ -45,9 +44,8 @@ class PageController extends Controller
     public function offer(Request $request, $id)
     {
         $offer = JobOffer::find($id);
-        $googleLink = $this->getURLFromIframe($offer->iframe_map);
         $skills = explode(',', $offer->skills);
-        return view('offer', compact('offer', 'googleLink', 'skills'));
+        return view('offer', compact('offer', 'skills'));
     }
 
     public function dashboard()
@@ -55,12 +53,5 @@ class PageController extends Controller
         $user = Auth::user();
 
         return view('dashboard.home', compact('user'));
-    }
-
-    public function getURLFromIframe($iframe)
-    {
-        $googleLink = explode("src=\"", $iframe);
-        $googleLink = explode("\"", $googleLink[1])[0];
-        return $googleLink;
     }
 }

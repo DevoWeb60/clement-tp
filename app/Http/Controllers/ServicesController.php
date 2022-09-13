@@ -60,7 +60,7 @@ class ServicesController extends Controller
 
         $service->update($request->validated());
         $service->update([
-            'image' => $newPath,
+            'image' => $newPath ? $newPath : $oldPath,
         ]);
 
         return redirect()->route('services.index');

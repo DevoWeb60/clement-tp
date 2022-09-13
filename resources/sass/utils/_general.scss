@@ -9,7 +9,7 @@ a {
 form {
     width: 100%;
     &.button {
-        width: auto;
+        width: auto !important;
     }
 
     &.spacing {

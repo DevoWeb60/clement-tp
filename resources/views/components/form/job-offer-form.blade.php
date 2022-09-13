@@ -26,7 +26,11 @@
                 <x-inputGroup label="Carte google" name="iframe_map" type="textarea">
                     {{ $jobOffer->iframe_map ?? '' }}
                 </x-inputGroup>
-                <x-iframe :iframe="$jobOffer->iframe_map ?? ''" />
+                @if ($jobOffer)
+                    @if ($jobOffer->iframe_map)
+                        <x-iframe :iframe="$jobOffer->iframe_map ?? ''" />
+                    @endif
+                @endif
             </div>
         </div>
     </div>

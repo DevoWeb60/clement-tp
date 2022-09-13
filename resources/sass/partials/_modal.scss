@@ -7,12 +7,18 @@
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
     z-index: 100;
-    @include flexCenter();
+    display: none;
+
+    &.active {
+        @include flexCenter();
+    }
 }
 
 .modal {
     position: relative;
     width: 90%;
+    max-height: 90vh;
+    overflow: auto;
     background: $grey;
     padding: 20px;
     border-radius: $borderRadius;
@@ -34,19 +40,45 @@
         margin-bottom: 20px;
     }
     .content {
-        @include flexSpaceBetween();
+        display: flex;
+        justify-content: center;
         flex-wrap: wrap;
-
+        text-align: center;
         img {
-            width: 60%;
+            max-height: 60vh;
+            border-radius: 5px;
+            box-shadow: $boxShadow;
         }
 
         .modal-text {
-            width: 38%;
+            text-align: left;
+            width: 100%;
             padding: 10px;
             border-radius: 5px;
             box-shadow: $boxShadow;
             background: $white;
         }
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .modal {
+        .content {
+            justify-content: space-between;
+            img {
+                width: 60%;
+            }
+
+            .modal-text {
+                margin: 0;
+                width: 38%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .modal {
+        width: 75%;
     }
 }

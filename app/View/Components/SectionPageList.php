@@ -5,16 +5,19 @@ namespace App\View\Components;
 use App\Models\PageContent;
 use Illuminate\View\Component;
 
-class HomeTarget extends Component
+class SectionPageList extends Component
 {
+    public $title;
+    public $pageName;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($pageName, $title)
     {
-        //
+        $this->title = $title;
+        $this->pageName = $pageName;
     }
 
     /**
@@ -24,6 +27,8 @@ class HomeTarget extends Component
      */
     public function render()
     {
-        return view('components.home.home-target');
+        $contents = PageContent::where('page_name', $this->pageName)->get();
+
+        return view('components.dashboard.section-page-list');
     }
 }

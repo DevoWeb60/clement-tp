@@ -18,10 +18,13 @@ class CandidateController extends Controller
      */
     public function index(Request $request)
     {
-        $candidates = Candidate::where('job_offer_id', $request->id)->get();
-        $jobOffer = JobOffer::where('id', $request->id)->first();
-
-
+        if ($request->id) {
+            $candidates = Candidate::where('job_offer_id', $request->id)->get();
+            $jobOffer = JobOffer::where('id', $request->id)->first();
+        } else {
+            $candidates = Candidate::all();
+            $jobOffer = null;
+        }
         return view('candidates.index', compact('candidates', 'jobOffer'));
     }
 

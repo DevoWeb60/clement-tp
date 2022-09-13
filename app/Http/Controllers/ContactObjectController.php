@@ -15,18 +15,14 @@ class ContactObjectController extends Controller
      */
     public function index(Request $request)
     {
-        $contactObjects = ContactObject::all();
+        $objet = false;
 
-        return view('contact-objects.index', compact('contactObject'));
+        return view('contact-objects.index', compact('objet'));
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
+    public function edit(Request $request, ContactObject $objet)
     {
-        return view('contact-objects.create');
+        return view('contact-objects.index', compact('objet'));
     }
 
     /**
@@ -37,7 +33,7 @@ class ContactObjectController extends Controller
     {
         $contactObject = ContactObject::create($request->validated());
 
-        return redirect()->route('contact-objects.index');
+        return redirect()->route('objets.index');
     }
 
     /**
@@ -45,13 +41,11 @@ class ContactObjectController extends Controller
      * @param \App\Models\ContactObject $contactObject
      * @return \Illuminate\Http\Response
      */
-    public function update(ContactObjectUpdateRequest $request, ContactObject $contactObject)
+    public function update(ContactObjectUpdateRequest $request, ContactObject $objet)
     {
-        $contactObject->update($request->validated());
+        $objet->update($request->validated());
 
-        return view('contact-objects.update', compact('contactObject'));
-
-        return redirect()->route('contact-objects.index');
+        return redirect()->route('objets.index');
     }
 
     /**
@@ -59,8 +53,9 @@ class ContactObjectController extends Controller
      * @param \App\Models\ContactObject $contactObject
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, ContactObject $contactObject)
+    public function destroy(Request $request, ContactObject $objet)
     {
-        $contactObject->delete();
+        $objet->delete();
+        return redirect()->route('objets.index');
     }
 }

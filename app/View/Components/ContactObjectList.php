@@ -2,10 +2,10 @@
 
 namespace App\View\Components;
 
-use App\Models\PageContent;
+use App\Models\ContactObject;
 use Illuminate\View\Component;
 
-class HomeTarget extends Component
+class ContactObjectList extends Component
 {
     /**
      * Create a new component instance.
@@ -24,6 +24,8 @@ class HomeTarget extends Component
      */
     public function render()
     {
-        return view('components.home.home-target');
+        $objects = ContactObject::all();
+
+        return view('components.dashboard.contact-object-list', compact('objects'));
     }
 }

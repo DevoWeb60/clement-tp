@@ -1,0 +1,13 @@
+#index-contact-object {
+    .container {
+        @include flexSpaceBetween;
+        align-items: center;
+        gap: 50px;
+        ul {
+            width: 40%;
+        }
+        form {
+            width: 55%;
+        }
+    }
+}

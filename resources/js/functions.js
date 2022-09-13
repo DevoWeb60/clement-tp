@@ -44,3 +44,35 @@ export const dynamicGoogleMapLink = (name) => {
         });
     }
 };
+
+export const dynamicModal = (className) => {
+    loopOn(className, (element) => {
+        const modalOverlay = document.querySelector(".modal-overlay");
+        const modal = document.querySelector(".modal");
+        const modalClose = modal.querySelector(".close");
+        const modalTitle = modal.querySelector(".title");
+        const modalImg = modal.querySelector(".modal-img");
+        const modalText = modal.querySelector(".modal-text");
+
+        const elementTitle = element.dataset.title;
+        const elementImg = element.querySelector("img").src;
+        const elementText = element.querySelector("p").innerText;
+
+        element.addEventListener("click", () => {
+            modalOverlay.classList.add("active");
+            modalTitle.innerText = elementTitle;
+            modalImg.src = elementImg;
+            modalText.innerText = elementText;
+        });
+
+        modalClose.addEventListener("click", () => {
+            modalOverlay.classList.remove("active");
+        });
+
+        document.addEventListener("click", (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove("active");
+            }
+        });
+    });
+};

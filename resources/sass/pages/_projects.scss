@@ -2,6 +2,7 @@
     .project {
         position: relative;
         width: 300px;
+        max-height: 200px;
         border-radius: 5px;
         box-shadow: $boxShadow;
         overflow: hidden;

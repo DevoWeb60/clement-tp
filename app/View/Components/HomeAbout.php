@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\PageContent;
 use Illuminate\View\Component;
 
 class HomeAbout extends Component
@@ -23,6 +24,9 @@ class HomeAbout extends Component
      */
     public function render()
     {
-        return view('components.home.home-about');
+        $contents = PageContent::where('page_name', 'home')->where('section_name', 'home-about')->get();
+
+
+        return view('components.home.home-about', compact('contents'));
     }
 }

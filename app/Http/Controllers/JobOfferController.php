@@ -50,7 +50,6 @@ class JobOfferController extends Controller
      */
     public function store(JobOfferStoreRequest $request)
     {
-
         $jobOffer = JobOffer::create($request->validated());
         $jobOffer->update([
             'active' => $request->active ? true : false,

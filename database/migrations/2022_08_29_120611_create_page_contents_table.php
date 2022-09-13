@@ -15,10 +15,13 @@ class CreatePageContentsTable extends Migration
     {
         Schema::create('page_contents', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 250);
             $table->text('content');
             $table->string('image', 250)->nullable();
-            $table->string('section_name', 250);
             $table->string('link', 250)->nullable();
+            $table->string('link_text', 250)->nullable();
+            $table->string('section_name', 250);
+            $table->string('page_name', 250);
             $table->timestamps();
         });
     }

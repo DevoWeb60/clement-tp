@@ -33,6 +33,7 @@ body {
 @import "components/servicesList";
 @import "components/inputFileGroup";
 @import "components/paginate";
+@import "components/contactObjectList";
 
 // PAGE
 @import "pages/home";
@@ -53,6 +54,7 @@ body {
 @import "dashboard/services";
 @import "dashboard/generalPage";
 @import "dashboard/user";
+@import "dashboard/contactObjects";
 
 // PARTIALS
 @import "partials/singleMessage";

@@ -3,12 +3,20 @@
         <div class="container">
             <div class="title">
                 <h2>Candidatures</h2>
-                <h3>Poste : <strong>{{ $jobOffer->name }}</strong> à <strong>{{ $jobOffer->city }}</strong></h3>
+                @if ($jobOffer)
+                    <h3>Poste : <strong>{{ $jobOffer->name }}</strong> à <strong>{{ $jobOffer->city }}</strong></h3>
+                @endif
             </div>
             <ul class="galery">
                 @foreach ($candidates as $candidate)
                     <li class="card">
-                        <h2>{{ $candidate->firstname }} {{ $candidate->lastname }}</h2>
+                        <div class="space-between row">
+                            <h2>{{ $candidate->firstname }} {{ $candidate->lastname }}</h2>
+                            @if (!$jobOffer)
+                                <a
+                                    href="{{ route('candidature.index', ['id' => $candidate->jobOffer->id]) }}">{{ $candidate->jobOffer->name }}</a>
+                            @endif
+                        </div>
                         @if ($candidate->status)
                             <span class="badge">{{ $candidate->status->name }}</span>
                         @endif
@@ -25,11 +33,10 @@
                             </li>
                         </ul>
                         <div class="actions">
-                            <a href="{{ route('candidature.show', $candidate) }}" class="btn-invert black">Voir la
-                                candidature</a>
+                            <a href="{{ route('candidature.show', $candidate) }}" class="btn-invert black">Voir</a>
                             <x-form class="button" action="{{ route('candidature.destroy', $candidate) }}"
                                 method="DELETE">
-                                <button type="submit" class="btn red">Supprimer la candidature</button>
+                                <button type="submit" class="btn red">Supprimer</button>
                             </x-form>
                     </li>
                 @endforeach

@@ -49,7 +49,7 @@ Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
     Route::resource('general', SiteInfoController::class)->only('index', 'update');
     Route::resource('offres', JobOfferController::class)->except('show');
     Route::resource('services', ServicesController::class)->except('show', 'create');
-    Route::resource('objets', ContactObjectController::class)->except('edit', 'show');
+    Route::resource('objets', ContactObjectController::class)->except('create', 'show');
     Route::resource('candidature', CandidateController::class)->only('index', 'show', 'update', 'destroy');
     Route::resource('message', ContactController::class)->only('show', 'destroy');
     Route::resource('candidature-status', CandidateStateController::class)->except('edit', 'show');

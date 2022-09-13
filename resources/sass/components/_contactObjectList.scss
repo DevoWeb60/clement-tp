@@ -1,0 +1,22 @@
+.contact-object-list {
+    @include boxContainer();
+
+    li {
+        @include flexSpaceBetween;
+        align-items: center;
+        margin: 15px;
+        padding: 0 20px;
+        border-radius: 5px;
+        transition: $transition;
+
+        .btn-container {
+            @include flexSpaceBetween;
+            align-items: center;
+            gap: 20px;
+        }
+
+        &:hover {
+            background: lighten($primary, 20);
+        }
+    }
+}

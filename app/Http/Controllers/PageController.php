@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JobOffer;
 use App\Models\SiteInfo;
 use App\Models\Candidate;
-use App\Models\JobOffer;
+use App\Models\PageContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,12 +13,16 @@ class PageController extends Controller
 {
     public function home()
     {
-        return view('home');
+        $presentations = PageContent::where('page_name', 'home')->where('section_name', 'home-presentation')->get();
+
+        return view('home', compact('presentations'));
     }
 
     public function about()
     {
-        return view('about');
+        $mainText = PageContent::where('page_name', 'about')->where('section_name', 'about-main')->first();
+        $aboutContents = PageContent::where('page_name', 'about')->where('section_name', 'about-content')->get();
+        return view('about', compact('mainText', 'aboutContents'));
     }
     public function services()
     {
@@ -25,7 +30,9 @@ class PageController extends Controller
     }
     public function projects()
     {
-        return view('projects');
+        $projects = PageContent::where('page_name', 'projects')->where('section_name', 'projects-galery')->get();
+
+        return view('projects', compact('projects'));
     }
     public function contact()
     {

@@ -10,7 +10,7 @@
     <ul class="activities">
         @foreach ($services as $service)
             <li>
-                <x-titleOnBackground :title="$service->name" image="{{ asset('storage/' . $service->image) }}" />
+                <x-titleOnBackground :title="$service->name" :image="$service->image" />
             </li>
         @endforeach
     </ul>

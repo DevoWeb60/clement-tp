@@ -15,10 +15,12 @@ class PageContent extends Model
      * @var array
      */
     protected $fillable = [
+        'title',
         'content',
         'image',
         'section_name',
         'link',
+        'page_name',
     ];
 
     /**

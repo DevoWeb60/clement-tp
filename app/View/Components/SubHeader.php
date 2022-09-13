@@ -37,6 +37,10 @@ class SubHeader extends Component
                 "link" => "menus.index"
             ],
             [
+                "name" => "Objets de contact",
+                "link" => "objets.index"
+            ],
+            [
                 'name' => "Mon Compte",
                 "link" => "utilisateurs.index"
             ]

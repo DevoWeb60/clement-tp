@@ -17,7 +17,7 @@ class PageContentController extends Controller
     {
         $pageContents = PageContent::all();
 
-        return view('page-content.index', compact('delivery'));
+        return view('page-content.index', compact('pageContents'));
     }
 
     /**

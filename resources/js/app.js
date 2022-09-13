@@ -2,6 +2,7 @@ import "./bootstrap";
 import Alpine from "alpinejs";
 import {
     dynamicGoogleMapLink,
+    dynamicModal,
     loopOn,
     toggleAccordion,
     toggleMenu,
@@ -12,11 +13,7 @@ window.Alpine = Alpine;
 Alpine.start();
 
 // NAVBAR
-const navMenuButton = "#hamburger";
-const navMenu = "header nav";
-const navToggleClassName = "show";
-const navMenuClose = "#menu-close";
-toggleMenu(navMenuButton, navMenu, navToggleClassName, navMenuClose);
+toggleMenu("#hamburger", "header nav", "show", "#menu-close");
 
 // ACCORDION SERVICES
 loopOn(".accordion", (accordion) => toggleAccordion(accordion, "show"));
@@ -24,3 +21,6 @@ loopOn(".accordion", (accordion) => toggleAccordion(accordion, "show"));
 // JOB OFFER FORM
 dynamicGoogleMapLink("city");
 dynamicGoogleMapLink("address");
+
+// MODAL
+dynamicModal(".project");

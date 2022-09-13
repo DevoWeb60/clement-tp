@@ -39,6 +39,8 @@
         }
 
         img {
+            object-fit: cover;
+            max-height: 50vh;
             border-radius: 10px;
             box-shadow: $boxShadow;
         }

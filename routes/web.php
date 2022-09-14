@@ -45,7 +45,7 @@ Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
     Route::resource('utilisateurs', UserController::class)->only('index', 'update');
     Route::resource('coupons', DeliveryController::class)->except('show', 'create');
     Route::resource('menus', PageMenuController::class)->except('show');
-    Route::resource('pages', PageContentController::class)->except('edit', 'show');
+    Route::resource('pages', PageContentController::class)->except('show');
     Route::resource('general', SiteInfoController::class)->only('index', 'update');
     Route::resource('offres', JobOfferController::class)->except('show');
     Route::resource('services', ServicesController::class)->except('show', 'create');

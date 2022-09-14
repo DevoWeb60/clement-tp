@@ -1,0 +1,38 @@
+.section-page-list {
+    @include boxContainer();
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 30%;
+    min-width: 300px;
+
+    .title h3 {
+        font-size: $fs-title + 0.2;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    .title {
+        margin: 10px;
+    }
+
+    ul.sections {
+        li {
+            margin-bottom: 20px;
+            background: $white;
+            border-radius: 5px;
+            box-shadow: $boxShadow;
+            overflow: hidden;
+
+            .header {
+                padding: 10px;
+            }
+        }
+    }
+
+    .new-section {
+        @include flexSpaceBetween();
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}

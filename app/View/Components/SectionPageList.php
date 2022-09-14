@@ -29,6 +29,6 @@ class SectionPageList extends Component
     {
         $contents = PageContent::where('page_name', $this->pageName)->get();
 
-        return view('components.dashboard.section-page-list');
+        return view('components.dashboard.section-page-list', compact('contents'));
     }
 }

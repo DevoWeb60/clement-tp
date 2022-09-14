@@ -37,6 +37,7 @@ class PageContentController extends Controller
     {
         $pageContent = PageContent::create($request->validated());
 
+
         return redirect()->route('page-content.index');
     }
 

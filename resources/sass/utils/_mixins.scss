@@ -30,6 +30,7 @@
 }
 @mixin flexGalery() {
     @include flexCenter();
+    align-items: stretch;
     flex-wrap: wrap;
     gap: 40px;
 }

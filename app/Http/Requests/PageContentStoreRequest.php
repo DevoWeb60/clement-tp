@@ -26,8 +26,6 @@ class PageContentStoreRequest extends FormRequest
         return [
             'content' => ['required', 'string'],
             'section_name' => ['required', 'string', 'max:250'],
-            'link' => ['string', 'max:250'],
-            'image' => ['string', 'max:250'],
         ];
     }
 }

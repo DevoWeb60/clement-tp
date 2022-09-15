@@ -1,7 +1,9 @@
-{{--
-    @extends('layouts.app')
-
-    @section('content')
-        page-content.create template
-    @endsection
---}}
+<x-layoutAdmin title="Nouvelle section">
+    <div class="title">
+        <h2>Nouvelle section : {{ $sectionName }}</h2>
+    </div>
+    <div class="container form">
+        <x-sectionPageForm :sectionData="false" :section="$sectionName" :page="$pageName" action="{{ route('pages.store') }}"
+            method="POST" />
+    </div>
+</x-layoutAdmin>

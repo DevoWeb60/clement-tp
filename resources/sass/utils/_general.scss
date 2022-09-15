@@ -32,6 +32,10 @@ button {
 }
 .container {
     padding: 0 $containerPadding;
+
+    &.form {
+        max-width: 800px;
+    }
 }
 .sub-container {
     padding: 10px;

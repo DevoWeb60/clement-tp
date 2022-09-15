@@ -16,8 +16,10 @@ class PageContentController extends Controller
     public function index(Request $request)
     {
         $pageContents = PageContent::all();
+        $pageName = null;
+        $sectionName = null;
 
-        return view('page-content.index', compact('pageContents'));
+        return view('page-content.index', compact('pageContents', 'pageName', 'sectionName'));
     }
 
     /**
@@ -26,7 +28,17 @@ class PageContentController extends Controller
      */
     public function create(Request $request)
     {
-        return view('page-content.create');
+        $pageName = $request->page;
+        $sectionName = $request->section;
+
+        return view('page-content.create', compact('pageName', 'sectionName'));
+    }
+
+    public function edit(Request $request, PageContent $page)
+    {
+        dd($page);
+
+        return view('page-content.edit', compact('page'));
     }
 
     /**
@@ -35,8 +47,9 @@ class PageContentController extends Controller
      */
     public function store(PageContentStoreRequest $request)
     {
-        $pageContent = PageContent::create($request->validated());
+        dd($request->all());
 
+        $pageContent = PageContent::create($request->validated());
 
         return redirect()->route('page-content.index');
     }
@@ -64,4 +77,10 @@ class PageContentController extends Controller
     {
         $pageContent->delete();
     }
+
+    public $validSectionNameByPage = [
+        'about' => ['about-main', 'about-content'],
+        'home' => ['home-about', 'home-presentation'],
+        'projects' => ['projects-galery']
+    ];
 }

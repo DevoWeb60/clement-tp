@@ -6,26 +6,28 @@
         <div class="container galery">
             <x-sectionPageList pageName="home" title="Accueil">
                 <li>
-                    <a class="btn" href="{{ route('pages.create', ['section' => 'home-about']) }}">home-about</a>
+                    <a class="btn"
+                        href="{{ route('pages.create', ['section' => 'home-about', 'page' => 'home']) }}">home-about</a>
                 </li>
                 <li>
                     <a class="btn"
-                        href="{{ route('pages.create', ['section' => 'home-presentation']) }}">home-presentation</a>
+                        href="{{ route('pages.create', ['section' => 'home-presentation', 'page' => 'home']) }}">home-presentation</a>
                 </li>
             </x-sectionPageList>
             <x-sectionPageList pageName="about" title="A propos">
                 <li>
-                    <a class="btn" href="{{ route('pages.create', ['section' => 'about-main']) }}">about-main</a>
+                    <a class="btn"
+                        href="{{ route('pages.create', ['section' => 'about-main', 'page' => 'about']) }}">about-main</a>
                 </li>
                 <li>
                     <a class="btn"
-                        href="{{ route('pages.create', ['section' => 'about-content']) }}">about-content</a>
+                        href="{{ route('pages.create', ['section' => 'about-content', 'page' => 'about']) }}">about-content</a>
                 </li>
             </x-sectionPageList>
             <x-sectionPageList pageName="projects" title="Nos Projets">
                 <li>
                     <a class="btn"
-                        href="{{ route('pages.create', ['section' => 'projects-galery']) }}">projects-galery</a>
+                        href="{{ route('pages.create', ['section' => 'projects-galery', 'page' => 'projects']) }}">projects-galery</a>
                 </li>
             </x-sectionPageList>
         </div>

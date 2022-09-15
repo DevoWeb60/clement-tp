@@ -20,6 +20,7 @@ class PageContent extends Model
         'image',
         'section_name',
         'link',
+        'link_text',
         'page_name',
     ];
 

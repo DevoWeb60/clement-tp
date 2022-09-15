@@ -1,0 +1,15 @@
+.input-radio-group {
+    label.main-label {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: darken($primary, 10);
+        margin-bottom: 0.5rem;
+    }
+    ul {
+        margin-bottom: 40px;
+
+        li {
+            margin: 10px 0;
+        }
+    }
+}

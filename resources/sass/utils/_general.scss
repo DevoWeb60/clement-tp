@@ -85,6 +85,13 @@ button {
     * {
         text-align: center;
     }
+
+    @media screen and (min-width: 750px) {
+        p {
+            max-width: 695px;
+            margin: 0 auto;
+        }
+    }
 }
 .hidden {
     display: none;

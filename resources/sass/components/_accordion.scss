@@ -44,5 +44,21 @@
             border-radius: 10px;
             box-shadow: $boxShadow;
         }
+
+        .content-text {
+            margin-top: 20px;
+            padding: 20px 10px 10px 20px;
+            background: $white;
+            border-radius: $borderRadiusInvert;
+            box-shadow: $boxShadow;
+
+            p {
+                margin: 0;
+            }
+
+            .btn-invert {
+                margin-bottom: 0;
+            }
+        }
     }
 }

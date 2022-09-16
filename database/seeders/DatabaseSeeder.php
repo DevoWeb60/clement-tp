@@ -27,13 +27,14 @@ class DatabaseSeeder extends Seeder
             ContactObjectSeeder::class,
             PageMenuSeeder::class,
             SiteInfoSeeder::class,
+            ServicesSeeder::class,
+            PageContentSeeder::class,
         ]);
 
         User::factory(1)->create();
         JobOffer::factory(7)->create();
         Newsletter::factory(21)->create();
-        Contact::factory(54)->create();
+        Contact::factory(22)->create();
         Candidate::factory(18)->create();
-        Service::factory(9)->create();
     }
 }

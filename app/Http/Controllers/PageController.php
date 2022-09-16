@@ -61,4 +61,9 @@ class PageController extends Controller
 
         return view('dashboard.home', compact('user'));
     }
+
+    public function privacy()
+    {
+        return view('privacy-policy');
+    }
 }

@@ -26,7 +26,7 @@ class UserFactory extends Factory
             'firstname' => "Jean Brice",
             'lastname' => 'Lepape',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'email' => "contact@clement-tp.fr",
+            'email' => "contact@tp-clement.fr",
         ];
     }
 }

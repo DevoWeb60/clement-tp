@@ -12,5 +12,7 @@
             @endforeach
         </ul>
     </nav>
-    <img src="{{ asset('storage/svg/hamburger.svg') }}" class="svg" alt="hamburger" id="hamburger">
+    @if ($role != 'admin')
+        <img src="{{ asset('storage/svg/hamburger.svg') }}" class="svg" alt="hamburger" id="hamburger">
+    @endif
 </header>

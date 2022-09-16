@@ -25,7 +25,7 @@ class CreateCandidatesTable extends Migration
             $table->string('lastname', 250);
             $table->unsignedBigInteger('states_id')->nullable();
             $table->foreign('states_id')->references('id')->on('candidate_states');
-            $table->foreignId('job_offer_id')->constrained();
+            $table->foreignId('job_offer_id')->constrained('job_offers')->onDelete('cascade');
             $table->timestamps();
         });
 

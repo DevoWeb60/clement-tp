@@ -17,10 +17,6 @@
             <x-sectionPageList pageName="about" title="A propos">
                 <li>
                     <a class="btn"
-                        href="{{ route('pages.create', ['section' => 'about-main', 'page' => 'about']) }}">about-main</a>
-                </li>
-                <li>
-                    <a class="btn"
                         href="{{ route('pages.create', ['section' => 'about-content', 'page' => 'about']) }}">about-content</a>
                 </li>
             </x-sectionPageList>

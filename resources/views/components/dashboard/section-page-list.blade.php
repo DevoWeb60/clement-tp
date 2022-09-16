@@ -9,11 +9,13 @@
                     <h3>{{ $section->title }}</h3>
                     <span>{{ $section->section_name }}</span>
                 </div>
-                <div class="controls c-2">
+                <div class="controls {{ $section->section_name != 'about-main' ? 'c-2' : null }}">
                     <a href="{{ route('pages.edit', ['page' => $section]) }}" class="control black">Modifier</a>
-                    <x-form action="{{ route('pages.destroy', ['page' => $section]) }}" method="DELETE">
-                        <button type="submit" class="control red">Supprimer</button>
-                    </x-form>
+                    @if ($section->section_name != 'about-main')
+                        <x-form action="{{ route('pages.destroy', ['page' => $section]) }}" method="DELETE">
+                            <button type="submit" class="control red">Supprimer</button>
+                        </x-form>
+                    @endif
                 </div>
             </li>
         @endforeach

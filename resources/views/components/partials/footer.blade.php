@@ -7,17 +7,17 @@
         <x-form action="{{ route('newsletter') }}" method="POST">
             <input type="hidden" name="route" value="{{ request()->route()->getName() }}">
             <input type="text" name="email" placeholder="Votre adresse mail">
-            <button type="submit">S'inscrire</button>
+            <button type="submit">S'inscrire à la newsletter</button>
         </x-form>
         <ul>
             @foreach ($menus as $menu)
                 <li><a href="{{ route($menu->link) }}">{{ $menu->name }}</a></li>
             @endforeach
-            <li><a href="{{ route('home') }}">Politique de confidentialité</a></li>
+            <li><a href="{{ route('privacy') }}">Politique de confidentialité</a></li>
         </ul>
     </div>
     <div class="socials">
-        <h3>Suivez nous</h3>
+        <h3>Suivez nous sur </h3>
         <ul>
 
             @if ($siteInfo->facebook)

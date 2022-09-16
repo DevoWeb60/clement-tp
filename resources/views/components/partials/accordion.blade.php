@@ -9,7 +9,12 @@
         @if ($image)
             <img src="{{ asset('storage/' . $image) }}" alt="{{ $title }}">
         @endif
-        <p class="text">{{ $slot }}</p>
-        <a href="{{ route($route) }}" class="btn">{{ $button }}</a>
+        <div class="content-text">
+            <p class="text">{{ $slot }}</p>
+            <div class="space-between">
+                <span></span>
+                <a href="{{ route($route) }}" class="btn-invert">{{ $button }}</a>
+            </div>
+        </div>
     </div>
 </div>

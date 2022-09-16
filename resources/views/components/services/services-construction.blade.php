@@ -10,7 +10,13 @@
             <li>
                 <x-accordion :image="$construction->image" :title="$construction->name" id="construction-{{ $construction->id }}" route="contact"
                     button="Demander un devis">
-                    {{ $construction->description }}
+                    @if ($target == 'professionnal')
+                        {{ $construction->professionnal }}
+                    @elseif ($target == 'customers')
+                        {{ $construction->description }}
+                    @else
+                        {{ $construction->description ? $construction->description : 'PRO : ' . $construction->professionnal }}
+                    @endif
                 </x-accordion>
             </li>
         @endforeach

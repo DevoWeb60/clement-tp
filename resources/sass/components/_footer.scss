@@ -73,3 +73,38 @@ footer {
         }
     }
 }
+@media screen and (min-width: 950px) {
+    footer {
+        padding: 20px;
+        .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            form {
+                width: 50%;
+            }
+            ul li {
+                text-align: right;
+            }
+        }
+        .socials {
+            width: 100%;
+            max-width: unset;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+
+            h3 {
+                flex-grow: 1;
+                text-align: right;
+            }
+
+            ul {
+                width: calc(4 * 2 * 40px);
+            }
+        }
+    }
+}

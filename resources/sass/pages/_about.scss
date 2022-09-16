@@ -10,3 +10,23 @@
         }
     }
 }
+
+#about-main {
+    .title-on-background {
+        padding: 20px 0;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    #about-main {
+        .title-on-background .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+    }
+}
+#about-content {
+    .container .text-box {
+        margin-bottom: 20px;
+    }
+}

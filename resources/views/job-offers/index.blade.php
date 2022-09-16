@@ -19,7 +19,7 @@
                         <h2>{{ $offre->name }}</h2>
                         <h4 class="muted">{{ $offre->city }}</h4>
                         <p>Salaire : {{ $offre->salary }} €/mois</p>
-                        <p class="m0">Compétence :</p>
+                        <p class="m0">Pré-requis :</p>
                         <ul class="list">
                             @foreach ($offre->skills as $skill)
                                 <li>{{ $skill }}</li>

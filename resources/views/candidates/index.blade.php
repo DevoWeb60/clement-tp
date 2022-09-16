@@ -2,10 +2,17 @@
     <div id="index-candidates">
         <div class="container">
             <div class="title">
-                <h2>Candidatures</h2>
+                <h2>Candidatures
+                </h2>
                 @if ($jobOffer)
-                    <h3>Poste : <strong>{{ $jobOffer->name }}</strong> à <strong>{{ $jobOffer->city }}</strong></h3>
+                    <h3>Poste : <strong>{{ $jobOffer->name }}</strong> à <strong>{{ $jobOffer->city }}</strong>
+
+                    </h3>
                 @endif
+                <div class="space-between">
+                    <span></span>
+                    <a href="{{ route('offres.edit', $jobOffer) }}" class="btn black">Editer cette offre</a>
+                </div>
             </div>
             <ul class="galery">
                 @foreach ($candidates as $candidate)

@@ -25,7 +25,7 @@
             </div>
             <div class="earn">
                 <h3>Salaire</h3>
-                <p>{{ $offer->salary }}</p>
+                <p>{{ $offer->salary }} €/mois</p>
             </div>
             <div class="location">
                 <h3>Prise de poste</h3>

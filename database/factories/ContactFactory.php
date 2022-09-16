@@ -30,7 +30,7 @@ class ContactFactory extends Factory
             'phone' => $this->randomPhoneNumber(),
             'email' => $this->faker->safeEmail,
             'viewed' => $this->faker->boolean,
-            'delivery_id' => $this->faker->numberBetween(1, 3),
+            'delivery_id' => $this->faker->boolean(50) ? $this->faker->numberBetween(1, 3) : null,
             'object_id' => $this->faker->numberBetween(1, 3),
         ];
     }

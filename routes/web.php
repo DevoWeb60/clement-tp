@@ -39,6 +39,8 @@ Route::get("/recrutement", [PageController::class, "jobOffer"])->name('jobOffer'
 Route::get("/recrutement/{id}", [PageController::class, "offer"])->name('offer');
 Route::post('/newsletter', [NewsletterController::class, "store"])->name('newsletter');
 Route::post('/postuler', [CandidateController::class, "store"])->name('candidature.store');
+Route::get('/politique-de-confidentialite', [PageController::class, "privacy"])->name('privacy');
+
 // ADMIN SIDE ROUTES
 Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
     Route::get('/', [PageController::class, 'dashboard'])->name('dashboard');

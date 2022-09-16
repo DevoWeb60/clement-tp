@@ -5,8 +5,10 @@
     rgba(0,0,0, 0.8)
 ),
 url({{ asset('storage/' . $image) }})">
-    <h2 class="{{ $slot != '' ? null : 'center' }}">{{ $title }}</h2>
-    @if ($slot != '')
-        <p class="text">{{ $slot }}</p>
-    @endif
+    <div class="container">
+        <h2 class="{{ $slot != '' ? null : 'center' }}">{{ $title }}</h2>
+        @if ($slot != '')
+            <p class="text">{{ $slot }}</p>
+        @endif
+    </div>
 </div>

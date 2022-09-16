@@ -26,3 +26,13 @@
         background: $white;
     }
 }
+
+@media screen and (min-width: 950px) {
+    .activities {
+        display: flex;
+
+        li {
+            flex-grow: 1;
+        }
+    }
+}

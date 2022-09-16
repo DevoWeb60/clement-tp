@@ -2,7 +2,7 @@
     <x-inputGroup label="Nom de l'offre" name="name" type="text">
         {{ $jobOffer->name ?? '' }}
     </x-inputGroup>
-    <x-inputGroup label="Compétences (séparées par des virgules)" name="skills" type="textarea">
+    <x-inputGroup label="Pré-requis (séparées par des virgules)" name="skills" type="textarea">
         {{ $jobOffer->skills ?? '' }}
     </x-inputGroup>
     <div class="space-between main">
@@ -47,6 +47,11 @@
     </div>
     <div class="space-between">
         <a href="{{ route('offres.index') }}" class="btn black">Annuler</a>
+        @if ($jobOffer)
+            <x-form action="{{ route('offres.destroy', ['offre' => $jobOffer]) }}" method="DELETE" class="button">
+                <button type="submit" class="btn red">Supprimer</button>
+            </x-form>
+        @endif
         <button type="submit" class="btn">Valider</button>
     </div>
 </x-form>

@@ -1,6 +1,6 @@
 <x-form action="{{ $action }}" method="{{ $method }}" enctype="multipart/form-data">
     <input type="hidden" name="section_name" value="{{ $section }}">
-    <input type="hidden" name="page_name" value="{{ $page }}">
+    <input type="hidden" name="page_name" value="{{ $pageName }}">
     @if ($inputTitle)
         <x-inputGroup label="Titre" name="title" type="text">
             {{ $sectionData ? $sectionData->title : '' }}
@@ -22,8 +22,8 @@
         </x-inputRadioGroup>
     @endif
     @if ($inputLinkText)
-        <x-inputGroup label="Texte du lien" name="linkText" type="text">
-            {{ $sectionData ? $sectionData->linkText : '' }}
+        <x-inputGroup label="Texte du lien" name="link_text" type="text">
+            {{ $sectionData ? $sectionData->link_text : '' }}
         </x-inputGroup>
     @endif
     <div class="space-between">

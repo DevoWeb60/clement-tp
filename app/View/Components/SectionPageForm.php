@@ -11,20 +11,20 @@ class SectionPageForm extends Component
     public $action;
     public $method;
     public $section;
-    public $page;
+    public $pageName;
     public $sectionData;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($page, $section, $action, $method, $sectionData)
+    public function __construct($pageName, $section, $action, $method, $sectionData)
     {
         $this->section = $section;
         $this->action = $action;
         $this->method = $method;
         $this->sectionData = $sectionData;
-        $this->page = $page;
+        $this->pageName = $pageName;
     }
 
     /**

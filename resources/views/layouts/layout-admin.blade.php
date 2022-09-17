@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="{{ asset('storage/png/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('storage/' . $siteInfo->favicon) }}" type="image/x-icon">
     <title>{{ $title }} | Administration</title>
-    <meta name="description" content="A REMPLIR">
+    <meta name="description" content="{{ $siteInfo->description }}">
     @vite(['resources/sass/style.scss', 'resources/js/app.js'])
 </head>
 

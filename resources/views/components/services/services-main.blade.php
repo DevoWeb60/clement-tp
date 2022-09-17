@@ -6,10 +6,11 @@
         @endif
     </h2>
     </h2>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum velit quasi voluptate aliquid odit
-        necessitatibus maiores nihil vero, numquam quos cumque incidunt fugiat illum perferendis, nesciunt delectus
-        consequatur doloremque. Aliquam.
+    <p class="text">
+        Nous sommes fiers du niveau amélioré de service personnalisé que nous offrons à nos clients, en particulier en
+        ce qui concerne la réalisation de tous les aspects du brief et du budget. Nous nous efforçons d’atteindre
+        uniquement les normes les plus élevées de conception et de construction, indépendamment de l’échelle et de la
+        complexité.
     </p>
 </div>
 @if ($services)

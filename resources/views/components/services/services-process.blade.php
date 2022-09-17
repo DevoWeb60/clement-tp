@@ -1,10 +1,11 @@
 <div id="services-process">
     <div class="container">
         <h2>Le processus</h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius cum qui pariatur veniam culpa consectetur
-            minus
-            quod obcaecati eaque ipsum molestias ex, quia asperiores a sint ut reprehenderit, voluptate molestiae.
+        <p class="text">
+            Travaillant au sein du modèle «Design & Build», Clément TP coordonne la gestion de tous les professionnels
+            et participants au projet, sous l’égide d’une seule équipe. Cela inclut les architectes, les ingénieurs, les
+            spécialistes, les constructeurs et le client. Cela garantit que les phases du projet se déroulent
+            harmonieusement grâce à une communication et une organisation efficaces.
         </p>
         <ul>
             @foreach ($processList as $process)

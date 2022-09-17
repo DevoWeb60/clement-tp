@@ -6,6 +6,7 @@ import {
     loopOn,
     toggleAccordion,
     toggleMenu,
+    verifDeleteOnClass,
 } from "./functions";
 
 window.Alpine = Alpine;
@@ -24,3 +25,6 @@ dynamicGoogleMapLink("address");
 
 // MODAL
 dynamicModal(".project");
+
+// VERIF ON DELETE
+verifDeleteOnClass(".delete-verif");

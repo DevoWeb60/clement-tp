@@ -16,12 +16,15 @@ class PageContentSeeder extends Seeder
     public function run()
     {
         $url = 'http://clement-tp.test';
+        // $url = 'https://tp-clement-tp.devoweb.fr';
 
         DB::table('page_contents')->insert([
             // HOME
             [
                 'title' => 'De la conception à la réalisation',
-                'content' => 'Clément TP opère selon un modèle de conception et de construction, agissant en tant qu’architecte, entrepreneur et gestionnaire de projet. Notre portefeuille comprend quelques-unes des adresses les plus prestigieuses de l’Oise et va des extensions aux rénovations jusqu’aux nouvelles constructions.',
+                'content' => "Clément TP opère selon un modèle de conception et de construction, agissant en tant qu’architecte, entrepreneur et gestionnaire de projet.
+                Nous accompagnons nos clients de la conception jusqu'à la réalisation et jouons le rôle d'intermédiaire entre nos client et les constructeurs.
+                Notre portefeuille comprend quelques-unes des adresses les plus prestigieuses de l’Oise et va des extensions aux rénovations jusqu’aux nouvelles constructions.",
                 'image' => 'webp/about-worker.webp',
                 'link' => "$url/a-propos",
                 'link_text' => "Qui sommes nous ?",
@@ -30,7 +33,9 @@ class PageContentSeeder extends Seeder
             ],
             [
                 'title' => 'Nos services',
-                'content' => 'Nous sommes fiers du niveau amélioré de service personnalisé que nous offrons à nos clients, en particulier en ce qui concerne la réalisation de tous les aspects du brief et du budget. Nous nous efforçons d’atteindre uniquement les normes les plus élevées de conception et de construction, indépendamment de l’échelle et de la complexité.',
+                'content' => "De la nouvelle construction à la rénovation,
+                nous proposons un large choix de service pouvant correspondre à projets,
+                aussi spécifique qu'il peuvent être.",
                 'image' => 'webp/visualisation.webp',
                 'link' => "$url/services",
                 'link_text' => null,
@@ -39,7 +44,9 @@ class PageContentSeeder extends Seeder
             ],
             [
                 'title' => 'Nos projets',
-                'content' => 'Clément TP opère selon un modèle de conception et de construction, agissant en tant qu’architecte, entrepreneur et gestionnaire de projet. Notre portefeuille comprend quelques-unes des adresses les plus prestigieuses de l’Oise et va des extensions aux rénovations jusqu’aux nouvelles constructions.',
+                'content' => "Nos projets sont vos projets.
+                Inspirez vous des projets
+                de nos clients que nous avons réalisé.",
                 'image' => 'webp/projects.webp',
                 'link' => "$url/projets",
                 'link_text' => null,
@@ -49,7 +56,10 @@ class PageContentSeeder extends Seeder
             // ABOUT
             [
                 'title' => 'Qui sommes nous ?',
-                'content' => 'Clément TP opère selon un modèle de conception et de construction, agissant en tant qu’architecte, entrepreneur et gestionnaire de projet. Notre portefeuille comprend quelques-unes des adresses les plus prestigieuses de l’Oise et va des extensions aux rénovations jusqu’aux nouvelles constructions.',
+                'content' => "Basé à La Roue Qui Tourne dans l'Oise, nous sommes une entreprise dans le domaine du BTP forte de nombreuses années d'expérience.
+
+                Nous offrons une gamme complète de services professionnels dans les secteurs résidentiel, commercial, éducatif et industriel dans le Nord de la France.
+                Nous veillons à comprendre les besoins de nos clients et de les traduire en solutions de conception innovantes et durables, exécutées avec la plus grande compétence technique.",
                 'image' => 'webp/about-worker.webp',
                 'link' => null,
                 'link_text' => null,
@@ -58,7 +68,9 @@ class PageContentSeeder extends Seeder
             ],
             [
                 'title' => 'Notre philosophie',
-                'content' => 'A REMPLIR',
+                'content' => "Nos services de conception et de construction visent à rationaliser le projet de la conception à la livraison, en éliminant le stress de nos clients devant traiter directement avec les constructeurs. La conception et la construction permettent une structuration efficace des frais, offrant aux clients une solution de construction simple et rentable.
+
+                Chez Clément TP, nous priorisons nos clients et leurs projets, en veillant à ce qu’ils reçoivent l’attention experte de nos architectes et designers d’intérieur innovants.",
                 'image' => null,
                 'link' => null,
                 'link_text' => null,
@@ -67,7 +79,9 @@ class PageContentSeeder extends Seeder
             ],
             [
                 'title' => 'Notre histoire',
-                'content' => 'A REMPLIR',
+                'content' => "Nous avons de nombreuses années d’expérience dans la construction, ayant travaillé avec une gamme de clients sur divers projet.
+
+                Certains de nos travaux comprennent des conversions de lofts, des extensions de maison, des conceptions de rénovation commerciale et des concepts pour de grands projets de développement.",
                 'image' => null,
                 'link' => null,
                 'link_text' => null,
@@ -76,7 +90,10 @@ class PageContentSeeder extends Seeder
             ],
             [
                 'title' => 'Notre expertise',
-                'content' => 'A REMPLIR',
+                'content' => "Les équipes de construction sont soigneusement sélectionnées parmi notre réseau de confiance d’artisans et de spécialistes qualifiés à travers les Hauts-de-France.
+                Un chef de projet expérimenté facilite la coordination du projet, en veillant à ce que toutes les réglementations en matière de planification, de santé et de sécurité et de construction soient respectées.
+                
+                Nous possédons la conception et les compétences techniques pour gérer tous les aspects des projets de construction.",
                 'image' => null,
                 'link' => null,
                 'link_text' => null,

@@ -41,10 +41,8 @@
                         </ul>
                         <div class="actions">
                             <a href="{{ route('candidature.show', $candidate) }}" class="btn-invert black">Voir</a>
-                            <x-form class="button" action="{{ route('candidature.destroy', $candidate) }}"
-                                method="DELETE">
-                                <button type="submit" class="btn red">Supprimer</button>
-                            </x-form>
+                            <x-deleteButton route="candidature.destroy" :element="$candidate" :isButton="true"
+                                class="btn red" />
                     </li>
                 @endforeach
             </ul>

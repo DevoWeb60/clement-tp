@@ -5,7 +5,7 @@
                 <div class="content">
                     <h2>{{ $content->title }}</h2>
                     <p class="text">{{ $content->content }}</p>
-                    <a href={{ $content->link }}" class="btn">{{ $content->link_text }}</a>
+                    <a href="{{ $content->link }}" class="btn">{{ $content->link_text }}</a>
                 </div>
             </div>
             @if ($content->image)

@@ -28,7 +28,7 @@ class CandidateFactory extends Factory
         return [
             'email' => $this->faker->safeEmail,
             'message' => $this->faker->text,
-            'file' => $this->faker->firstname . ' ' . $this->faker->lastname . '.pdf',
+            'file' => 'pdf/cv.pdf',
             'phone' => $this->faker->phoneNumber,
             'firstname' => $this->faker->firstName,
             'lastname' => $this->faker->lastName,

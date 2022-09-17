@@ -18,9 +18,7 @@
                 </div>
             </div>
             <div class="controls c-2">
-                <x-form action="{{ route('coupons.destroy', $delivery->id) }}" method="DELETE">
-                    <button type="submit" class="control red">Supprimer</button>
-                </x-form>
+                <x-deleteButton route="coupons.destroy" :element="$delivery" :isButton="false" class="control red" />
                 <a href="{{ route('coupons.edit', $delivery->id) }}" class="control black">Modifier</a>
             </div>
         </li>

@@ -3,13 +3,15 @@ export const toggleMenu = (button, menu, className, close) => {
     const menuElement = document.querySelector(menu);
     const closeElement = document.querySelector(close);
 
-    buttonElement.addEventListener("click", () => {
-        menuElement.classList.add(className);
-    });
+    if (buttonElement && menuElement && closeElement) {
+        buttonElement.addEventListener("click", () => {
+            menuElement.classList.add(className);
+        });
 
-    closeElement.addEventListener("click", () => {
-        menuElement.classList.remove(className);
-    });
+        closeElement.addEventListener("click", () => {
+            menuElement.classList.remove(className);
+        });
+    }
 };
 
 export const toggleAccordion = (accordion, className) => {
@@ -75,4 +77,20 @@ export const dynamicModal = (className) => {
             }
         });
     });
+};
+
+export const verifDeleteOnClass = (className) => {
+    const elements = document.querySelectorAll(className);
+
+    if (elements) {
+        elements.forEach((element) => {
+            element.addEventListener("submit", (e) => {
+                if (
+                    !confirm("Êtes-vous sûr de vouloir supprimer ce contenu ?")
+                ) {
+                    e.preventDefault();
+                }
+            });
+        });
+    }
 };

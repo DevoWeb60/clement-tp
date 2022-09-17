@@ -17,9 +17,7 @@
                     {{ substr($message->message, 0, 50) }}...
                 </p>
                 <div class="controls {{ $message->phone != null ? 'c-4' : 'c-3' }}">
-                    <x-form method="DELETE" action="{{ route('message.destroy', ['message' => $message]) }}">
-                        <button type="submit" class="control red delete">Supprimer</button>
-                    </x-form>
+                    <x-deleteButton route="message.destroy" :element="$message" :isButton="false" class="control red" />
                     @if ($message->phone)
                         <x-callPhoneNumber class="control blue" :phoneNumber="$message->phone" />
                     @endif

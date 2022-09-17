@@ -7,10 +7,6 @@
             <x-sectionPageList pageName="home" title="Accueil">
                 <li>
                     <a class="btn"
-                        href="{{ route('pages.create', ['section' => 'home-about', 'page' => 'home']) }}">home-about</a>
-                </li>
-                <li>
-                    <a class="btn"
                         href="{{ route('pages.create', ['section' => 'home-presentation', 'page' => 'home']) }}">home-presentation</a>
                 </li>
             </x-sectionPageList>

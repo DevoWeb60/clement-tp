@@ -1,0 +1,2 @@
+#!/bin/sh
+rsync -av ./ zmku8173@ftp.zmku8173.odns.fr:~/tp-clement.devoweb.fr --exclude-from=.gitignore --exclude=".*" --exclude=./bootstrap/cache --exclude=./public/storage

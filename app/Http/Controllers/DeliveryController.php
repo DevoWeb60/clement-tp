@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DeliveryStoreRequest;
 use App\Http\Requests\DeliveryUpdateRequest;
+use App\Models\Contact;
 use App\Models\Delivery;
 use Illuminate\Http\Request;
 
@@ -63,6 +64,7 @@ class DeliveryController extends Controller
      */
     public function destroy(Request $request, Delivery $coupon)
     {
+        Contact::where('delivery_id', $coupon->id)->update(['delivery_id' => null]);
         $coupon->delete();
 
         return redirect()->route('coupons.index');

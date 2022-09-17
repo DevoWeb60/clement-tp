@@ -10,9 +10,7 @@
             <ul class="newsletters">
                 @foreach ($newsletters as $newsletter)
                     <li class="space-between"><span>{{ $newsletter->email }}</span>
-                        <x-form class="button" method="DELETE" action="{{ route('newsletters.destroy', $newsletter) }}">
-                            <button type="submit" class="btn red">Supprimer</button>
-                        </x-form>
+                        <x-deleteButton route="newsletters.destroy" :element="$newsletter" :isButton="true" class="btn red" />
                     </li>
                 @endforeach
             </ul>

@@ -28,9 +28,7 @@
                 <a href="{{ route('candidature.index', ['id' => $candidature->job_offer_id]) }}"
                     class="control black">Retour</a>
                 <a href="{{ route('offres.index') }}" class="control grey">Retour aux offres</a>
-                <x-form action="{{ route('candidature.destroy', $candidature->id) }}" method="DELETE">
-                    <button type="submit" class="control red">Supprimer</button>
-                </x-form>
+                <x-deleteButton route="candidature.destroy" :element="$candidature" :isButton="false" class="control red" />
             </div>
         </div>
         <x-form class="status-form" action="{{ route('candidature.update', $candidature) }}" method="PUT">

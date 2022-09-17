@@ -6,6 +6,7 @@
     align-items: stretch;
     width: 30%;
     min-width: 300px;
+    padding: 20px 10px;
 
     .title h3 {
         font-size: $fs-title + 0.2;
@@ -17,6 +18,9 @@
     }
 
     ul.sections {
+        max-height: 60vh;
+        overflow-y: scroll;
+        padding: 0 10px;
         li {
             margin-bottom: 20px;
             background: $white;
@@ -30,9 +34,12 @@
         }
     }
 
-    .new-section {
-        @include flexSpaceBetween();
-        align-items: center;
-        flex-wrap: wrap;
+    .btn-container {
+        padding: 0 10px;
+        .new-section {
+            @include flexSpaceBetween();
+            align-items: center;
+            flex-wrap: wrap;
+        }
     }
 }

@@ -20,9 +20,7 @@
                     @endif
                 </div>
                 <div class="controls c-2">
-                    <x-form action="{{ route('services.destroy', $service->id) }}" method="DELETE">
-                        <button type="submit" class="control red">Supprimer</button>
-                    </x-form>
+                    <x-deleteButton route="services.destroy" :element="$service" :isButton="false" class="control red" />
                     <a href="{{ route('services.edit', $service->id) }}" class="control black">Modifier</a>
                 </div>
             </li>

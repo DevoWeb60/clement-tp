@@ -35,7 +35,7 @@ class PageMenuSeeder extends Seeder
                 'link' => 'projects'
             ],
             [
-                'name' => 'A propos',
+                'name' => 'À propos',
                 'header' => true,
                 'footer' => true,
                 'link' => 'about'

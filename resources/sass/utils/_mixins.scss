@@ -115,12 +115,14 @@
 
 @mixin formInput() {
     border: none;
-    border-bottom: 2px solid $primary;
+    transition: $transition;
+    border-left: 3px solid $grey;
+    border-bottom: 3px solid $primary;
     padding: 10px;
     outline: none;
 
     &:focus {
-        border-left: 2px solid $primary;
+        border-left: 3px solid $primary;
     }
 }
 

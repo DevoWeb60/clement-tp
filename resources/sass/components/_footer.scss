@@ -29,6 +29,8 @@ footer {
         margin: 50px 0;
         input {
             @include formInput();
+            background: $grey;
+            border-radius: 5px 5px 0px 0px;
             width: 100%;
         }
         button {
@@ -84,6 +86,7 @@ footer {
 
             form {
                 width: 50%;
+                max-width: 300px;
             }
             ul li {
                 text-align: right;

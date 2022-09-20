@@ -23,17 +23,10 @@
     padding: 50px $containerPadding;
     background: $grey;
 
-    li {
-        width: 90%;
-        margin: 0 8% 30px 0;
-
-        &:nth-child(even) {
-            margin: 0 0 30px 8%;
-            .text-box {
-                border-radius: $borderRadiusInvert;
-            }
-        }
+    li:nth-child(even) .text-box {
+        border-radius: $borderRadiusInvert;
     }
+
     .text-box {
         background: $white;
         border-color: $grey;
@@ -49,6 +42,18 @@
 
         li {
             flex-grow: 1;
+        }
+    }
+
+    #services-process li {
+        width: 90%;
+        margin: 0 8% 30px 0;
+
+        &:nth-child(even) {
+            margin: 0 0 30px 8%;
+            .text-box {
+                border-radius: $borderRadiusInvert;
+            }
         }
     }
 }

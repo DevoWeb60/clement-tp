@@ -30,4 +30,5 @@
             </div>
         @endif
     </div>
+    <x-callToContact />
 </x-layoutApp>
